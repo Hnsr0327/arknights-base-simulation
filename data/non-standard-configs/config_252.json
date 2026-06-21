@@ -1,0 +1,153 @@
+{
+  "_comment": "252 标准布局: 2×Lv3发电 5×制造(3×Lv3+2×Lv2) 2×贸易(1×Lv3+1×Lv1) 4×Lv1宿舍。基于 config.json, 仅覆盖布局与等级相关项。",
+
+  "material_values_ap": {
+    "经验": 0.0028874,
+    "龙门币": 0.0036,
+    "源石碎片": 1.146,
+    "赤金": 1.1549,
+    "无人机": 0.04812,
+    "线索": 1.65,
+    "招募许可": 28.35,
+    "技巧概要": 0.0,
+    "合成玉": 0.75
+  },
+
+  "manufacture": {
+    "level": [3, 3, 3, 2, 2],
+    "slots": 3,
+    "slots_by_level": {"1": 1, "2": 2, "3": 3},
+    "capacity_volume": 54,
+    "capacity_volume_by_level": {"1": 24, "2": 36, "3": 54},
+    "base_prod_per_operator": 1.0,
+    "lines": {
+      "作战记录": {"output": "经验", "units_per_item": 1000, "base_minutes_per_item": 180, "min_level": 3,
+        "volume_per_item": 5, "category": "record"},
+      "赤金":     {"output": "赤金", "units_per_item": 1, "base_minutes_per_item": 72, "min_level": 1,
+        "volume_per_item": 2, "category": "gold"}
+    },
+    "_disabled_lines": {}
+  },
+
+  "trading": {
+    "strategy": "gold",
+    "external_gold_per_day": 10,
+    "level": [3, 1],
+    "slots": 3,
+    "slots_by_level": {"1": 1, "2": 2, "3": 3},
+    "base_eff_per_operator": 1.0,
+    "order_limit": 10,
+    "order_limit_by_level": {"1": 6, "2": 8, "3": 10},
+    "gold_order": {"base_minutes_per_order": 203.4, "gold_per_order": 2.9, "lmd_per_order": 1450,
+      "prob_2_gold": 0.3, "prob_3_gold": 0.5, "native_4_gold_probability": 0.2},
+    "gold_order_by_level": {
+      "1": {"base_minutes_per_order": 144.0, "gold_per_order": 2.0, "lmd_per_order": 1000,
+        "prob_2_gold": 1.0, "prob_3_gold": 0.0, "native_4_gold_probability": 0.0},
+      "2": {"base_minutes_per_order": 170.4, "gold_per_order": 2.4, "lmd_per_order": 1200,
+        "prob_2_gold": 0.6, "prob_3_gold": 0.4, "native_4_gold_probability": 0.0},
+      "3": {"base_minutes_per_order": 203.4, "gold_per_order": 2.9, "lmd_per_order": 1450,
+        "prob_2_gold": 0.3, "prob_3_gold": 0.5, "native_4_gold_probability": 0.2}
+    },
+    "orundum_order": {"min_level": 3, "base_minutes_per_order": 120.0, "source_shard_per_order": 2.0, "orundum_per_order": 20.0},
+    "quality_order_profiles": {
+      "alpha": {"base_minutes_per_order": 236.4, "gold_per_order": 3.4, "lmd_per_order": 1700,
+        "prob_2_gold": 0.15, "prob_3_gold": 0.30, "native_4_gold_probability": 0.55, "warmup_hours": 3.0},
+      "alpha2": {"base_minutes_per_order": 244.32, "gold_per_order": 3.52, "lmd_per_order": 1760,
+        "prob_2_gold": 0.13, "prob_3_gold": 0.22, "native_4_gold_probability": 0.65, "warmup_hours": 3.0},
+      "beta": {"base_minutes_per_order": 262.8, "gold_per_order": 3.8, "lmd_per_order": 1900,
+        "prob_2_gold": 0.05, "prob_3_gold": 0.10, "native_4_gold_probability": 0.85, "warmup_hours": 5.0}
+    },
+    "unsold_gold_value_factor": 0.0,
+    "special_ops": {
+      "佩佩": {"base_minutes_per_order": 270, "gold_per_order": 0, "lmd_per_order": 1000},
+      "可露希尔": {"base_minutes_per_order": 144, "gold_per_order": 2, "lmd_per_order": 1200},
+      "但书": {"gold_bonus_e2": 2.0, "gold_bonus_e0": 1.0},
+      "龙舌兰": {"lmd_bonus_e2": 500.0, "lmd_bonus_e0": 250.0},
+      "巫恋": {"self_eff": 45.0},
+      "U-Official": {"gold_per_order": 2, "lmd_per_order": 1000}
+    }
+  },
+
+  "power": {
+    "level": 3,
+    "slots": 1,
+    "supply_per_station": 270,
+    "supply_per_station_by_level": {"1": 60, "2": 130, "3": 270},
+    "drone_per_hour_base": 10.0,
+    "drone_cap": 235,
+    "base_charge_bonus_per_operator": 5.0,
+    "drone_minutes_per_drone": 3.0
+  },
+
+  "electricity": {
+    "consumption": {"manufacture": 60, "trading": 60, "meeting": 60, "hire": 60,
+      "training": 60, "workshop": 10, "dormitory": 65, "control": 0, "power": 0},
+    "consumption_by_level": {
+      "manufacture": {"1": 10, "2": 30, "3": 60},
+      "trading": {"1": 10, "2": 30, "3": 60},
+      "meeting": {"1": 10, "2": 30, "3": 60},
+      "hire": {"1": 10, "2": 30, "3": 60},
+      "training": {"1": 10, "2": 30, "3": 60},
+      "workshop": {"1": 10, "2": 10, "3": 10},
+      "dormitory": {"1": 10, "2": 20, "3": 30, "4": 45, "5": 65}
+    }
+  },
+
+  "control": {
+    "level": 5,
+    "drone_assist_min_level": 3,
+    "slots": 5,
+    "slots_by_level": {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5}
+  },
+
+  "dormitory": {
+    "max_rooms": 4,
+    "slots": 5,
+    "level": [1, 1, 1, 1],
+    "ambiance": [1000, 1000, 1000, 1000],
+    "base_recover_per_hour": 2.0
+  },
+
+  "meeting":  {"slots": 2, "slots_by_level": {"1": 2, "2": 2, "3": 2},
+    "level": 3, "clue_per_hour_base": 0.05, "clue_limit": 10,
+    "daily_clue_if_staffed": 1.0,
+    "dorm_ambience_bonus": [[2000, 5.0], [3000, 10.0], [4000, 15.0]],
+    "rarity_bonus": {"4": 2.0, "5": 4.0, "6": 5.0},
+    "elite_bonus": {"1": 8.0, "2": 16.0},
+    "level_bonus": {"1": 7.0, "2": 9.0, "3": 11.0},
+    "non_fatigued_bonus": 5.0
+  },
+  "hire":     {"slots": 1, "slots_by_level": {"1": 1, "2": 1, "3": 1},
+    "level": 3, "recruit_slots": 4, "recruit_slots_by_level": {"1": 2, "2": 3, "3": 4}, "contact_per_hour_base": 0.08333333333333333, "base_eff_per_operator": 5.0, "contact_limit": 3,
+    "ap_per_refresh": 19.0
+  },
+  "workshop": {"level": 3, "slots": 1, "slots_by_level": {"1": 1, "2": 1, "3": 1},
+    "crafts_per_day": 0.0, "craft_category": "any", "craft_mood_cost": 0.0, "base_byproduct_chance": 0.0, "ap_per_byproduct": 0.0
+  },
+  "training": {"slots": 2, "level": 3, "max_mastery_by_level": {"1": 1, "2": 2, "3": 3},
+    "active_plan": true, "target_mastery_level": 3, "target_profession": null, "target_branch": null, "zuo_le_martial_ready": false,
+    "base_speed_per_operator": 5.0,
+    "ap_value_per_hour": 0.0, "base_session_hours": 0.0
+  },
+
+  "mood": {
+    "cap": 24.0,
+    "base_drain_per_hour": 1.0,
+    "control_drain_reduction": 0.05,
+    "occupancy_reduction": [0.0, 0.0, 0.05, 0.1]
+  },
+
+  "layout": {
+    "_comment": "252布局: 固定5制造2贸易2发电, 不枚举其他布局。",
+    "production_slots": 9,
+    "min_power": 2,
+    "max_manufacture": 5,
+    "max_trading": 2,
+    "max_power": 2,
+    "fixed_rooms": {"control": 1, "meeting": 1, "hire": 1, "workshop": 1, "training": 1, "dormitory": 4}
+  },
+
+  "schedule": {
+    "login_hours": [0, 6, 12, 18]
+  }
+}

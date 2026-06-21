@@ -1,0 +1,3576 @@
+{
+  "Lancet-2": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "Castle-3": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "THRM-EX": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "正义骑士号": {
+    "nation": "卡西米尔",
+    "group": "红松骑士团",
+    "team": null,
+    "factions": [
+      "卡西米尔",
+      "红松骑士团"
+    ]
+  },
+  "泰拉大陆调查团": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "U-Official": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "Friston-3": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "PhonoR-0": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "CONFESS-47": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "GALLUS²": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "罗德岛隐秘队": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "夜刀": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动组A4",
+    "factions": [
+      "罗德岛",
+      "行动组A4"
+    ]
+  },
+  "黑角": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动组A4",
+    "factions": [
+      "罗德岛",
+      "行动组A4"
+    ]
+  },
+  "巡林者": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动组A4",
+    "factions": [
+      "罗德岛",
+      "行动组A4"
+    ]
+  },
+  "杜林": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动组A4",
+    "factions": [
+      "罗德岛",
+      "行动组A4"
+    ]
+  },
+  "12F": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "芬": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A1",
+    "factions": [
+      "罗德岛",
+      "行动预备组A1"
+    ]
+  },
+  "香草": {
+    "nation": "哥伦比亚",
+    "group": "黑钢国际",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "黑钢国际"
+    ]
+  },
+  "预备干员-近战": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "翎羽": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "玫兰莎": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A4",
+    "factions": [
+      "罗德岛",
+      "行动预备组A4"
+    ]
+  },
+  "泡普卡": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A6",
+    "factions": [
+      "罗德岛",
+      "行动预备组A6"
+    ]
+  },
+  "卡缇": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A4",
+    "factions": [
+      "罗德岛",
+      "行动预备组A4"
+    ]
+  },
+  "米格鲁": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A1",
+    "factions": [
+      "罗德岛",
+      "行动预备组A1"
+    ]
+  },
+  "预备干员-重装": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "斑点": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A6",
+    "factions": [
+      "罗德岛",
+      "行动预备组A6"
+    ]
+  },
+  "克洛丝": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A1",
+    "factions": [
+      "罗德岛",
+      "行动预备组A1"
+    ]
+  },
+  "安德切尔": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A4",
+    "factions": [
+      "罗德岛",
+      "行动预备组A4"
+    ]
+  },
+  "预备干员-狙击": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "炎熔": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A1",
+    "factions": [
+      "罗德岛",
+      "行动预备组A1"
+    ]
+  },
+  "芙蓉": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A1",
+    "factions": [
+      "罗德岛",
+      "行动预备组A1"
+    ]
+  },
+  "安赛尔": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A4",
+    "factions": [
+      "罗德岛",
+      "行动预备组A4"
+    ]
+  },
+  "预备干员-后勤": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "史都华德": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A4",
+    "factions": [
+      "罗德岛",
+      "行动预备组A4"
+    ]
+  },
+  "预备干员-术师": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "梓兰": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A6",
+    "factions": [
+      "罗德岛",
+      "行动预备组A6"
+    ]
+  },
+  "夜烟": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "远山": {
+    "nation": "萨米",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨米"
+    ]
+  },
+  "格雷伊": {
+    "nation": "玻利瓦尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "玻利瓦尔"
+    ]
+  },
+  "协律": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "卡达": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "深靛": {
+    "nation": "伊比利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "伊比利亚"
+    ]
+  },
+  "布丁": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "杰西卡": {
+    "nation": "哥伦比亚",
+    "group": "黑钢国际",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "黑钢国际"
+    ]
+  },
+  "流星": {
+    "nation": "卡西米尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "卡西米尔"
+    ]
+  },
+  "红云": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "梅": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "白雪": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "松果": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "安比尔": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "酸糖": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "铅踝": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "跃跃": {
+    "nation": "玻利瓦尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "玻利瓦尔"
+    ]
+  },
+  "讯使": {
+    "nation": "谢拉格",
+    "group": "喀兰贸易",
+    "team": null,
+    "factions": [
+      "谢拉格",
+      "喀兰贸易"
+    ]
+  },
+  "清道夫": {
+    "nation": "罗德岛",
+    "group": "S.W.E.E.P.",
+    "team": null,
+    "factions": [
+      "罗德岛",
+      "S.W.E.E.P."
+    ]
+  },
+  "预备干员-先锋": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "红豆": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "桃金娘": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "豆苗": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "冬时": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "乌萨斯"
+    ]
+  },
+  "杜宾": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "缠丸": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "断罪者": {
+    "nation": "米诺斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "米诺斯"
+    ]
+  },
+  "预备干员-近卫": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "霜叶": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "艾丝黛尔": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "慕斯": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "刻刀": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "宴": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "芳汀": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "罗小黑": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "石英": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "休谟斯": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "骋风": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "砾": {
+    "nation": "卡西米尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "卡西米尔"
+    ]
+  },
+  "预备干员-特种": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "孑": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎-龙门"
+    ]
+  },
+  "暗索": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎-龙门"
+    ]
+  },
+  "末药": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "嘉维尔": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "苏苏洛": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "预备干员-医疗": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "调香师": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "清流": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "褐果": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "角峰": {
+    "nation": "谢拉格",
+    "group": "喀兰贸易",
+    "team": null,
+    "factions": [
+      "谢拉格",
+      "喀兰贸易"
+    ]
+  },
+  "蛇屠箱": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "泡泡": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "露托": {
+    "nation": "玻利瓦尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "玻利瓦尔"
+    ]
+  },
+  "古米": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": "乌萨斯学生自治团",
+    "factions": [
+      "乌萨斯",
+      "乌萨斯学生自治团"
+    ]
+  },
+  "坚雷": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "深海色": {
+    "nation": "阿戈尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "阿戈尔"
+    ]
+  },
+  "地灵": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "波登可": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "预备干员-辅助": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "罗比菈塔": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "盟约·辅助干员": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "伊桑": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "阿消": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎-龙门"
+    ]
+  },
+  "维荻": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "云迹": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "白面鸮": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "微风": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "瑰盐": {
+    "nation": "伊比利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "伊比利亚"
+    ]
+  },
+  "凛冬": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": "乌萨斯学生自治团",
+    "factions": [
+      "乌萨斯",
+      "乌萨斯学生自治团"
+    ]
+  },
+  "德克萨斯": {
+    "nation": "炎-龙门",
+    "group": "企鹅物流",
+    "team": null,
+    "factions": [
+      "炎-龙门",
+      "企鹅物流"
+    ]
+  },
+  "贾维": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": "贾维团伙",
+    "factions": [
+      "叙拉古",
+      "贾维团伙"
+    ]
+  },
+  "青枳": {
+    "nation": "哥伦比亚",
+    "group": "汐斯塔",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "汐斯塔"
+    ]
+  },
+  "郁金香": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "红隼": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "松桐": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "苇草": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "野鬃": {
+    "nation": "卡西米尔",
+    "group": "红松骑士团",
+    "team": null,
+    "factions": [
+      "卡西米尔",
+      "红松骑士团"
+    ]
+  },
+  "历阵锐枪芬": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "极境": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "万顷": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "夜半": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "渡桥": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "晓歌": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "谜图": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "齐尔查克": {
+    "nation": null,
+    "group": null,
+    "team": "莱欧斯小队",
+    "factions": [
+      "莱欧斯小队"
+    ]
+  },
+  "寻澜": {
+    "nation": "哥伦比亚",
+    "group": "黑钢国际",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "黑钢国际"
+    ]
+  },
+  "诗怀雅": {
+    "nation": "炎-龙门",
+    "group": "龙门近卫局",
+    "team": null,
+    "factions": [
+      "炎-龙门",
+      "龙门近卫局"
+    ]
+  },
+  "鞭刃": {
+    "nation": "卡西米尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "卡西米尔"
+    ]
+  },
+  "苍苔": {
+    "nation": "哥伦比亚",
+    "group": "汐斯塔",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "汐斯塔"
+    ]
+  },
+  "医生": {
+    "nation": null,
+    "group": null,
+    "team": "彩虹小队",
+    "factions": [
+      "彩虹小队"
+    ]
+  },
+  "芙兰卡": {
+    "nation": "哥伦比亚",
+    "group": "黑钢国际",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "黑钢国际"
+    ]
+  },
+  "炎客": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "摩根": {
+    "nation": "维多利亚",
+    "group": "格拉斯哥帮",
+    "team": null,
+    "factions": [
+      "维多利亚",
+      "格拉斯哥帮"
+    ]
+  },
+  "Sharp": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "莱欧斯": {
+    "nation": null,
+    "group": null,
+    "team": "莱欧斯小队",
+    "factions": [
+      "莱欧斯小队"
+    ]
+  },
+  "因陀罗": {
+    "nation": "维多利亚",
+    "group": "格拉斯哥帮",
+    "team": null,
+    "factions": [
+      "维多利亚",
+      "格拉斯哥帮"
+    ]
+  },
+  "燧石": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "达格达": {
+    "nation": "维多利亚",
+    "group": "格拉斯哥帮",
+    "team": null,
+    "factions": [
+      "维多利亚",
+      "格拉斯哥帮"
+    ]
+  },
+  "拉普兰德": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "断崖": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "烈夏": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": "乌萨斯学生自治团",
+    "factions": [
+      "乌萨斯",
+      "乌萨斯学生自治团"
+    ]
+  },
+  "铎铃": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "柏喙": {
+    "nation": "萨米",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨米"
+    ]
+  },
+  "战车": {
+    "nation": null,
+    "group": null,
+    "team": "彩虹小队",
+    "factions": [
+      "彩虹小队"
+    ]
+  },
+  "幽灵鲨": {
+    "nation": "阿戈尔",
+    "group": "深海猎人",
+    "team": null,
+    "factions": [
+      "阿戈尔",
+      "深海猎人"
+    ]
+  },
+  "布洛卡": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": "贾维团伙",
+    "factions": [
+      "叙拉古",
+      "贾维团伙"
+    ]
+  },
+  "导火索": {
+    "nation": null,
+    "group": null,
+    "team": "彩虹小队",
+    "factions": [
+      "彩虹小队"
+    ]
+  },
+  "摆渡人": {
+    "nation": "米诺斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "米诺斯"
+    ]
+  },
+  "星极": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "铸铁": {
+    "nation": "米诺斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "米诺斯"
+    ]
+  },
+  "赤冬": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "火龙S黑角": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动组A4",
+    "factions": [
+      "罗德岛",
+      "行动组A4"
+    ]
+  },
+  "羽毛笔": {
+    "nation": "玻利瓦尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "玻利瓦尔"
+    ]
+  },
+  "海沫": {
+    "nation": "伊比利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "伊比利亚"
+    ]
+  },
+  "龙舌兰": {
+    "nation": "玻利瓦尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "玻利瓦尔"
+    ]
+  },
+  "奥达": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "聆音": {
+    "nation": "玻利瓦尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "玻利瓦尔"
+    ]
+  },
+  "祐天寺若麦": {
+    "nation": null,
+    "group": null,
+    "team": "Ave Mujica",
+    "factions": [
+      "Ave Mujica"
+    ]
+  },
+  "哈蒂娅": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "雷狼龙S空爆": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A6",
+    "factions": [
+      "罗德岛",
+      "行动预备组A6"
+    ]
+  },
+  "蓝毒": {
+    "nation": "伊比利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "伊比利亚"
+    ]
+  },
+  "白金": {
+    "nation": "卡西米尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "卡西米尔"
+    ]
+  },
+  "灰喉": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "Stormeye": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "四月": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "寒芒克洛丝": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "隐现": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "陨星": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "慑砂": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "截云": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "送葬人": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "奥斯塔": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": "贾维团伙",
+    "factions": [
+      "叙拉古",
+      "贾维团伙"
+    ]
+  },
+  "吉星": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "天空盒": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "阿米娅": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "苦艾": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": "乌萨斯学生自治团",
+    "factions": [
+      "乌萨斯",
+      "乌萨斯学生自治团"
+    ]
+  },
+  "特米米": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "雪绒": {
+    "nation": "萨米",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨米"
+    ]
+  },
+  "天火": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "Pith": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "惊蛰": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "星源": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "蜜蜡": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "莱恩哈特": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "寒檀": {
+    "nation": "萨米",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨米"
+    ]
+  },
+  "复奏": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "薄绿": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "爱丽丝": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "和弦": {
+    "nation": "维多利亚",
+    "group": "塔拉",
+    "team": null,
+    "factions": [
+      "维多利亚",
+      "塔拉"
+    ]
+  },
+  "戴菲恩": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "炎狱炎熔": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "蚀清": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "阿罗玛": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "耶拉": {
+    "nation": "谢拉格",
+    "group": null,
+    "team": null,
+    "factions": [
+      "谢拉格"
+    ]
+  },
+  "洛洛": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "至简": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "折光": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "温米": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "Miss.Christine": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "特克诺": {
+    "nation": "玻利瓦尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "玻利瓦尔"
+    ]
+  },
+  "梅尔": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "稀音": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "衡沙": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "赫默": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "华法琳": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "亚叶": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "Touch": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "录武官": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "锡兰": {
+    "nation": "哥伦比亚",
+    "group": "汐斯塔",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "汐斯塔"
+    ]
+  },
+  "絮雨": {
+    "nation": "伊比利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "伊比利亚"
+    ]
+  },
+  "诺威尔": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "图耶": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "桑葚": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "蜜莓": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "哈洛德": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "濯尘芙蓉": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "刺玫": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "明椒": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "莎草": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "乌啾": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "乌萨斯"
+    ]
+  },
+  "风絮": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "临光": {
+    "nation": null,
+    "group": null,
+    "team": "使徒",
+    "factions": [
+      "使徒"
+    ]
+  },
+  "吽": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": "鲤氏侦探事务所",
+    "factions": [
+      "炎-龙门",
+      "鲤氏侦探事务所"
+    ]
+  },
+  "深律": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "森西": {
+    "nation": null,
+    "group": null,
+    "team": "莱欧斯小队",
+    "factions": [
+      "莱欧斯小队"
+    ]
+  },
+  "红": {
+    "nation": "罗德岛",
+    "group": "S.W.E.E.P.",
+    "team": null,
+    "factions": [
+      "罗德岛",
+      "S.W.E.E.P."
+    ]
+  },
+  "槐琥": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": "鲤氏侦探事务所",
+    "factions": [
+      "炎-龙门",
+      "鲤氏侦探事务所"
+    ]
+  },
+  "卡夫卡": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "乌有": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "裁度": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "雷蛇": {
+    "nation": "哥伦比亚",
+    "group": "黑钢国际",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "黑钢国际"
+    ]
+  },
+  "深巡": {
+    "nation": "阿戈尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "阿戈尔"
+    ]
+  },
+  "可颂": {
+    "nation": "炎-龙门",
+    "group": "企鹅物流",
+    "team": null,
+    "factions": [
+      "炎-龙门",
+      "企鹅物流"
+    ]
+  },
+  "拜松": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎-龙门"
+    ]
+  },
+  "火神": {
+    "nation": "米诺斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "米诺斯"
+    ]
+  },
+  "折桠": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "乌萨斯"
+    ]
+  },
+  "石棉": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "暮落": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "车尔尼": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "闪击": {
+    "nation": null,
+    "group": null,
+    "team": "彩虹小队",
+    "factions": [
+      "彩虹小队"
+    ]
+  },
+  "暴雨": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "灰毫": {
+    "nation": "卡西米尔",
+    "group": "红松骑士团",
+    "team": null,
+    "factions": [
+      "卡西米尔",
+      "红松骑士团"
+    ]
+  },
+  "火哨": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "极光": {
+    "nation": "谢拉格",
+    "group": null,
+    "team": null,
+    "factions": [
+      "谢拉格"
+    ]
+  },
+  "洋灰": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "菲莱": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "裂响": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "乌萨斯"
+    ]
+  },
+  "普罗旺斯": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "玫拉": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "守林人": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "安哲拉": {
+    "nation": "阿戈尔",
+    "group": "深海猎人",
+    "team": null,
+    "factions": [
+      "阿戈尔",
+      "深海猎人"
+    ]
+  },
+  "子月": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "熔泉": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "埃拉托": {
+    "nation": "米诺斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "米诺斯"
+    ]
+  },
+  "矩": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "承曦格雷伊": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "冰酿": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "雪猎": {
+    "nation": "谢拉格",
+    "group": null,
+    "team": null,
+    "factions": [
+      "谢拉格"
+    ]
+  },
+  "水灯心": {
+    "nation": "维多利亚",
+    "group": "塔拉",
+    "team": null,
+    "factions": [
+      "维多利亚",
+      "塔拉"
+    ]
+  },
+  "空构": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "崖心": {
+    "nation": "谢拉格",
+    "group": null,
+    "team": null,
+    "factions": [
+      "谢拉格"
+    ]
+  },
+  "雪雉": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎-龙门"
+    ]
+  },
+  "杏仁": {
+    "nation": "哥伦比亚",
+    "group": "黑钢国际",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "黑钢国际"
+    ]
+  },
+  "初雪": {
+    "nation": "谢拉格",
+    "group": null,
+    "team": null,
+    "factions": [
+      "谢拉格"
+    ]
+  },
+  "巫恋": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "海霓": {
+    "nation": "阿戈尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "阿戈尔"
+    ]
+  },
+  "真理": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": "乌萨斯学生自治团",
+    "factions": [
+      "乌萨斯",
+      "乌萨斯学生自治团"
+    ]
+  },
+  "格劳克斯": {
+    "nation": "伊比利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "伊比利亚"
+    ]
+  },
+  "但书": {
+    "nation": "卡西米尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "卡西米尔"
+    ]
+  },
+  "小满": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "掠风": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "凯瑟琳": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "阿兰娜": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "空": {
+    "nation": "炎-龙门",
+    "group": "企鹅物流",
+    "team": null,
+    "factions": [
+      "炎-龙门",
+      "企鹅物流"
+    ]
+  },
+  "海蒂": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "三角初华": {
+    "nation": null,
+    "group": null,
+    "team": "Ave Mujica",
+    "factions": [
+      "Ave Mujica"
+    ]
+  },
+  "月禾": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "九色鹿": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "夏栎": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "行箸": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "撷英调香师": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "凛视": {
+    "nation": "萨米",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨米"
+    ]
+  },
+  "波卜": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "伯塔尼": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "乌萨斯"
+    ]
+  },
+  "狮蝎": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "绮良": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "八幡海铃": {
+    "nation": null,
+    "group": null,
+    "team": "Ave Mujica",
+    "factions": [
+      "Ave Mujica"
+    ]
+  },
+  "食铁兽": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎-龙门"
+    ]
+  },
+  "见行者": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "罗宾": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "霜华": {
+    "nation": null,
+    "group": null,
+    "team": "彩虹小队",
+    "factions": [
+      "彩虹小队"
+    ]
+  },
+  "钼铅": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "贝娜": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "风丸": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "双月": {
+    "nation": null,
+    "group": null,
+    "team": "彩虹小队",
+    "factions": [
+      "彩虹小队"
+    ]
+  },
+  "若叶睦": {
+    "nation": null,
+    "group": null,
+    "team": "Ave Mujica",
+    "factions": [
+      "Ave Mujica"
+    ]
+  },
+  "锡人": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "蒂比": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "能天使": {
+    "nation": "炎-龙门",
+    "group": "企鹅物流",
+    "team": null,
+    "factions": [
+      "炎-龙门",
+      "企鹅物流"
+    ]
+  },
+  "空弦": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "灰烬": {
+    "nation": null,
+    "group": null,
+    "team": "彩虹小队",
+    "factions": [
+      "彩虹小队"
+    ]
+  },
+  "黑": {
+    "nation": "哥伦比亚",
+    "group": "汐斯塔",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "汐斯塔"
+    ]
+  },
+  "鸿雪": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "焰狐龙梓兰": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A6",
+    "factions": [
+      "罗德岛",
+      "行动预备组A6"
+    ]
+  },
+  "远牙": {
+    "nation": "卡西米尔",
+    "group": "红松骑士团",
+    "team": null,
+    "factions": [
+      "卡西米尔",
+      "红松骑士团"
+    ]
+  },
+  "蕾缪安": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "W": {
+    "nation": null,
+    "group": "巴别塔",
+    "team": null,
+    "factions": [
+      "巴别塔"
+    ]
+  },
+  "菲亚梅塔": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "早露": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": "乌萨斯学生自治团",
+    "factions": [
+      "乌萨斯",
+      "乌萨斯学生自治团"
+    ]
+  },
+  "提丰": {
+    "nation": "萨米",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨米"
+    ]
+  },
+  "迷迭香": {
+    "nation": "罗德岛",
+    "group": "罗德岛-精英干员",
+    "team": null,
+    "factions": [
+      "罗德岛",
+      "罗德岛-精英干员"
+    ]
+  },
+  "维什戴尔": {
+    "nation": null,
+    "group": "巴别塔",
+    "team": null,
+    "factions": [
+      "巴别塔"
+    ]
+  },
+  "假日威龙陈": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "莱伊": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "娜仁图亚": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "推进之王": {
+    "nation": "维多利亚",
+    "group": "格拉斯哥帮",
+    "team": null,
+    "factions": [
+      "维多利亚",
+      "格拉斯哥帮"
+    ]
+  },
+  "风笛": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "嵯峨": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "忍冬": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "琴柳": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "焰尾": {
+    "nation": "卡西米尔",
+    "group": "红松骑士团",
+    "team": null,
+    "factions": [
+      "卡西米尔",
+      "红松骑士团"
+    ]
+  },
+  "伺夜": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "缪尔赛思": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "可露希尔": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "凛御银灰": {
+    "nation": "谢拉格",
+    "group": null,
+    "team": null,
+    "factions": [
+      "谢拉格"
+    ]
+  },
+  "伊内丝": {
+    "nation": null,
+    "group": "巴别塔",
+    "team": null,
+    "factions": [
+      "巴别塔"
+    ]
+  },
+  "伊芙利特": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "莫斯提马": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "艾雅法拉": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "刻俄柏": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "霍尔海雅": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "逻各斯": {
+    "nation": "罗德岛",
+    "group": "罗德岛-精英干员",
+    "team": null,
+    "factions": [
+      "罗德岛",
+      "罗德岛-精英干员"
+    ]
+  },
+  "夕": {
+    "nation": "炎",
+    "group": "炎-岁",
+    "team": null,
+    "factions": [
+      "炎",
+      "炎-岁"
+    ]
+  },
+  "玛露西尔": {
+    "nation": null,
+    "group": null,
+    "team": "莱欧斯小队",
+    "factions": [
+      "莱欧斯小队"
+    ]
+  },
+  "异客": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "卡涅利安": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "林": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎-龙门"
+    ]
+  },
+  "圣聆初雪": {
+    "nation": "谢拉格",
+    "group": null,
+    "team": null,
+    "factions": [
+      "谢拉格"
+    ]
+  },
+  "澄闪": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "荒芜拉普兰德": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "黑键": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "维伊": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "乌萨斯"
+    ]
+  },
+  "妮芙": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "烛煌": {
+    "nation": "罗德岛",
+    "group": "罗德岛-精英干员",
+    "team": null,
+    "factions": [
+      "罗德岛",
+      "罗德岛-精英干员"
+    ]
+  },
+  "真言": {
+    "nation": "罗德岛",
+    "group": "罗德岛-精英干员",
+    "team": null,
+    "factions": [
+      "罗德岛",
+      "罗德岛-精英干员"
+    ]
+  },
+  "死芒": {
+    "nation": "维多利亚",
+    "group": "塔拉",
+    "team": null,
+    "factions": [
+      "维多利亚",
+      "塔拉"
+    ]
+  },
+  "灵知": {
+    "nation": "谢拉格",
+    "group": "喀兰贸易",
+    "team": null,
+    "factions": [
+      "谢拉格",
+      "喀兰贸易"
+    ]
+  },
+  "安洁莉娜": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "铃兰": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "Raidian": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "溯光星源": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "麦哲伦": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "电弧": {
+    "nation": "罗德岛",
+    "group": "罗德岛-精英干员",
+    "team": null,
+    "factions": [
+      "罗德岛",
+      "罗德岛-精英干员"
+    ]
+  },
+  "浊心斯卡蒂": {
+    "nation": "阿戈尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "阿戈尔"
+    ]
+  },
+  "魔王": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "淬羽赫默": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "遥": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "令": {
+    "nation": "炎",
+    "group": "炎-岁",
+    "team": null,
+    "factions": [
+      "炎",
+      "炎-岁"
+    ]
+  },
+  "白铁": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "娜斯提": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "塑心": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "酒神": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "傀影": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "缄默德克萨斯": {
+    "nation": "炎-龙门",
+    "group": "企鹅物流",
+    "team": null,
+    "factions": [
+      "炎-龙门",
+      "企鹅物流"
+    ]
+  },
+  "麒麟R夜刀": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动组A4",
+    "factions": [
+      "罗德岛",
+      "行动组A4"
+    ]
+  },
+  "弑君者": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "Misery": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "老鲤": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": "鲤氏侦探事务所",
+    "factions": [
+      "炎-龙门",
+      "鲤氏侦探事务所"
+    ]
+  },
+  "琳琅诗怀雅": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎-龙门"
+    ]
+  },
+  "温蒂": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "阿": {
+    "nation": "炎-龙门",
+    "group": null,
+    "team": "鲤氏侦探事务所",
+    "factions": [
+      "炎-龙门",
+      "鲤氏侦探事务所"
+    ]
+  },
+  "新约能天使": {
+    "nation": "炎-龙门",
+    "group": "企鹅物流",
+    "team": null,
+    "factions": [
+      "炎-龙门",
+      "企鹅物流"
+    ]
+  },
+  "歌蕾蒂娅": {
+    "nation": "阿戈尔",
+    "group": "深海猎人",
+    "team": null,
+    "factions": [
+      "阿戈尔",
+      "深海猎人"
+    ]
+  },
+  "水月": {
+    "nation": "东",
+    "group": null,
+    "team": null,
+    "factions": [
+      "东"
+    ]
+  },
+  "阿斯卡纶": {
+    "nation": "罗德岛",
+    "group": "S.W.E.E.P.",
+    "team": null,
+    "factions": [
+      "罗德岛",
+      "S.W.E.E.P."
+    ]
+  },
+  "归溟幽灵鲨": {
+    "nation": "阿戈尔",
+    "group": "深海猎人",
+    "team": null,
+    "factions": [
+      "阿戈尔",
+      "深海猎人"
+    ]
+  },
+  "多萝西": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "艾拉": {
+    "nation": null,
+    "group": null,
+    "team": "彩虹小队",
+    "factions": [
+      "彩虹小队"
+    ]
+  },
+  "望": {
+    "nation": "炎",
+    "group": "炎-岁",
+    "team": null,
+    "factions": [
+      "炎",
+      "炎-岁"
+    ]
+  },
+  "引星棘刺": {
+    "nation": "伊比利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "伊比利亚"
+    ]
+  },
+  "闪灵": {
+    "nation": null,
+    "group": null,
+    "team": "使徒",
+    "factions": [
+      "使徒"
+    ]
+  },
+  "夜莺": {
+    "nation": null,
+    "group": null,
+    "team": "使徒",
+    "factions": [
+      "使徒"
+    ]
+  },
+  "凯尔希": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "流明": {
+    "nation": "伊比利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "伊比利亚"
+    ]
+  },
+  "纯烬艾雅法拉": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "焰影苇草": {
+    "nation": "维多利亚",
+    "group": "塔拉",
+    "team": null,
+    "factions": [
+      "维多利亚",
+      "塔拉"
+    ]
+  },
+  "缇缇": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "Mon3tr": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "凯尔希·思衡托": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "星熊": {
+    "nation": "炎-龙门",
+    "group": "龙门近卫局",
+    "team": null,
+    "factions": [
+      "炎-龙门",
+      "龙门近卫局"
+    ]
+  },
+  "Mechanist": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "塞雷娅": {
+    "nation": "哥伦比亚",
+    "group": "莱茵生命",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "莱茵生命"
+    ]
+  },
+  "瑕光": {
+    "nation": "卡西米尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "卡西米尔"
+    ]
+  },
+  "黍": {
+    "nation": "炎",
+    "group": "炎-岁",
+    "team": null,
+    "factions": [
+      "炎",
+      "炎-岁"
+    ]
+  },
+  "年": {
+    "nation": "炎",
+    "group": "炎-岁",
+    "team": null,
+    "factions": [
+      "炎",
+      "炎-岁"
+    ]
+  },
+  "泥岩": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "斥罪": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "森蚺": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "号角": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "涤火杰西卡": {
+    "nation": "哥伦比亚",
+    "group": "黑钢国际",
+    "team": null,
+    "factions": [
+      "哥伦比亚",
+      "黑钢国际"
+    ]
+  },
+  "信仰搅拌机": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "余": {
+    "nation": "炎",
+    "group": "炎-岁",
+    "team": null,
+    "factions": [
+      "炎",
+      "炎-岁"
+    ]
+  },
+  "斩业星熊": {
+    "nation": "炎-龙门",
+    "group": "龙门近卫局",
+    "team": null,
+    "factions": [
+      "炎-龙门",
+      "龙门近卫局"
+    ]
+  },
+  "山": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "重岳": {
+    "nation": "炎",
+    "group": "炎-岁",
+    "team": null,
+    "factions": [
+      "炎",
+      "炎-岁"
+    ]
+  },
+  "贝洛内": {
+    "nation": "叙拉古",
+    "group": null,
+    "team": null,
+    "factions": [
+      "叙拉古"
+    ]
+  },
+  "银灰": {
+    "nation": "谢拉格",
+    "group": "喀兰贸易",
+    "team": null,
+    "factions": [
+      "谢拉格",
+      "喀兰贸易"
+    ]
+  },
+  "棘刺": {
+    "nation": "伊比利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "伊比利亚"
+    ]
+  },
+  "仇白": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "丰川祥子": {
+    "nation": null,
+    "group": null,
+    "team": "Ave Mujica",
+    "factions": [
+      "Ave Mujica"
+    ]
+  },
+  "领主·Sharp": {
+    "nation": null,
+    "group": null,
+    "team": null,
+    "factions": []
+  },
+  "赫德雷": {
+    "nation": null,
+    "group": "巴别塔",
+    "team": null,
+    "factions": [
+      "巴别塔"
+    ]
+  },
+  "乌尔比安": {
+    "nation": "阿戈尔",
+    "group": "深海猎人",
+    "team": null,
+    "factions": [
+      "阿戈尔",
+      "深海猎人"
+    ]
+  },
+  "佩佩": {
+    "nation": "萨尔贡",
+    "group": null,
+    "team": null,
+    "factions": [
+      "萨尔贡"
+    ]
+  },
+  "怒潮凛冬": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": "乌萨斯学生自治团",
+    "factions": [
+      "乌萨斯",
+      "乌萨斯学生自治团"
+    ]
+  },
+  "陈": {
+    "nation": "炎-龙门",
+    "group": "龙门近卫局",
+    "team": null,
+    "factions": [
+      "炎-龙门",
+      "龙门近卫局"
+    ]
+  },
+  "艾丽妮": {
+    "nation": "伊比利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "伊比利亚"
+    ]
+  },
+  "锏": {
+    "nation": "谢拉格",
+    "group": "喀兰贸易",
+    "team": null,
+    "factions": [
+      "谢拉格",
+      "喀兰贸易"
+    ]
+  },
+  "煌": {
+    "nation": "罗德岛",
+    "group": "罗德岛-精英干员",
+    "team": null,
+    "factions": [
+      "罗德岛",
+      "罗德岛-精英干员"
+    ]
+  },
+  "百炼嘉维尔": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "史尔特尔": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "薇薇安娜": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "维娜·维多利亚": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "赤刃明霄陈": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "赫拉格": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "乌萨斯"
+    ]
+  },
+  "左乐": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "帕拉斯": {
+    "nation": "米诺斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "米诺斯"
+    ]
+  },
+  "耀骑士临光": {
+    "nation": "卡西米尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "卡西米尔"
+    ]
+  },
+  "止颂": {
+    "nation": "莱塔尼亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "莱塔尼亚"
+    ]
+  },
+  "圣约送葬人": {
+    "nation": "拉特兰",
+    "group": null,
+    "team": null,
+    "factions": [
+      "拉特兰"
+    ]
+  },
+  "隐德来希": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": null,
+    "factions": [
+      "罗德岛"
+    ]
+  },
+  "玛恩纳": {
+    "nation": "卡西米尔",
+    "group": null,
+    "team": null,
+    "factions": [
+      "卡西米尔"
+    ]
+  },
+  "司霆惊蛰": {
+    "nation": "炎",
+    "group": null,
+    "team": null,
+    "factions": [
+      "炎"
+    ]
+  },
+  "响石": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "暴行": {
+    "nation": "雷姆必拓",
+    "group": null,
+    "team": null,
+    "factions": [
+      "雷姆必拓"
+    ]
+  },
+  "空爆": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A6",
+    "factions": [
+      "罗德岛",
+      "行动预备组A6"
+    ]
+  },
+  "月见夜": {
+    "nation": "罗德岛",
+    "group": null,
+    "team": "行动预备组A6",
+    "factions": [
+      "罗德岛",
+      "行动预备组A6"
+    ]
+  },
+  "猎蜂": {
+    "nation": "乌萨斯",
+    "group": null,
+    "team": null,
+    "factions": [
+      "乌萨斯"
+    ]
+  },
+  "杰克": {
+    "nation": "哥伦比亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "哥伦比亚"
+    ]
+  },
+  "夜魔": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "格拉尼": {
+    "nation": "维多利亚",
+    "group": null,
+    "team": null,
+    "factions": [
+      "维多利亚"
+    ]
+  },
+  "斯卡蒂": {
+    "nation": "阿戈尔",
+    "group": "深海猎人",
+    "team": null,
+    "factions": [
+      "阿戈尔",
+      "深海猎人"
+    ]
+  }
+}

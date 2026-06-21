@@ -1,0 +1,182 @@
+{
+  "_comment": "明日方舟基建运转大模拟 配置。产能/心情/电力常量已按 PRTS wiki (prts.wiki) 校准, 见 README 数据来源。素材理智价值按一图流物品价值表校准。均可改。",
+
+  "material_values_ap": {
+    "_comment": "每单位素材折合的理智价值 (理智/个)。已按一图流『物品价值表.xlsx』校准。可用 --values-xlsx 实时载入(按物品id, 见 valuetable.py)。办公室/会客室估值参考: 逻辑元/BioHazard https://www.bilibili.com/video/BV1wLDqBvEKC/",
+    "经验": 0.0028874,
+    "龙门币": 0.0036,
+    "源石碎片": 1.146,
+    "赤金": 1.1549,
+    "无人机": 0.04812,
+    "线索": 1.65,
+    "招募许可": 28.35,
+    "技巧概要": 0.0,
+    "合成玉": 0.75
+  },
+
+  "manufacture": {
+    "_comment": "制造站(满级3级)。PRTS: 库存按*体积*54, 产物各占体积; 实际产速 = 基础 ×(1+总生产力%/100), 基础耗时见 base_minutes_per_item。生产力%为干员技能值之和+控制中枢全局(默认基底100%即0加成)。",
+    "level": 3,
+    "slots": 3,
+    "slots_by_level": {"1": 1, "2": 2, "3": 3},
+    "capacity_volume": 54,
+    "capacity_volume_by_level": {"1": 24, "2": 36, "3": 54},
+    "base_prod_per_operator": 1.0,
+    "lines": {
+      "作战记录": {"output": "经验", "units_per_item": 1000, "base_minutes_per_item": 180, "min_level": 3,
+        "volume_per_item": 5, "category": "record",
+        "_comment": "高级作战记录: 1000经验/件, 基础180分/件, 占体积5 -> 满级库存10.8件。基础/初级记录EXP效率更低, 此处用满级制造站最优的高级作战记录。"},
+      "赤金":     {"output": "赤金", "units_per_item": 1, "base_minutes_per_item": 72, "min_level": 1,
+        "volume_per_item": 2, "category": "gold",
+        "_comment": "赤金: 基础72分/件, 占体积2 -> 满级库存27件。无原料消耗; 经贸易站赤金订单换龙门币(1赤金=500龙门币)。"}
+    },
+    "_disabled_lines": {
+      "源石碎片": {"_comment": "PRTS: 源石碎片线消耗 固源岩×2 + 龙门币1600/件, 净值为负, 默认不启用。需要可加入 lines。"}
+    }
+  },
+
+  "trading": {
+    "_comment": "贸易站(满级3级)。strategy=gold 时按赤金订单: 1赤金=500龙门币; 3级普通赤金订单按 PRTS 2/3/4 赤金单 30%/50%/20% 取长期期望。strategy=orundum 时按 Lv3 开采协力: 2源石碎片->20合成玉, 基础2小时/单。出单速率 = 基础 ×(1+总订单效率%/100)。",
+    "strategy": "gold",
+    "external_gold_per_day": 10,
+    "level": 3,
+    "slots": 3,
+    "slots_by_level": {"1": 1, "2": 2, "3": 3},
+    "base_eff_per_operator": 1.0,
+    "order_limit": 10,
+    "order_limit_by_level": {"1": 6, "2": 8, "3": 10},
+    "gold_order": {"base_minutes_per_order": 203.4, "gold_per_order": 2.9, "lmd_per_order": 1450,
+      "prob_2_gold": 0.3, "prob_3_gold": 0.5, "native_4_gold_probability": 0.2,
+      "_comment": "3级站普通赤金订单期望: 2赤金/144分 概率30%, 3赤金/210分 概率50%, 4赤金/276分 概率20%。概率字段用于龙舌兰投资、但书违约订单等只作用于特定原生订单的技能。"},
+    "gold_order_by_level": {
+      "1": {"base_minutes_per_order": 144.0, "gold_per_order": 2.0, "lmd_per_order": 1000,
+        "prob_2_gold": 1.0, "prob_3_gold": 0.0, "native_4_gold_probability": 0.0},
+      "2": {"base_minutes_per_order": 170.4, "gold_per_order": 2.4, "lmd_per_order": 1200,
+        "prob_2_gold": 0.6, "prob_3_gold": 0.4, "native_4_gold_probability": 0.0},
+      "3": {"base_minutes_per_order": 203.4, "gold_per_order": 2.9, "lmd_per_order": 1450,
+        "prob_2_gold": 0.3, "prob_3_gold": 0.5, "native_4_gold_probability": 0.2}
+    },
+    "orundum_order": {"min_level": 3, "base_minutes_per_order": 120.0, "source_shard_per_order": 2.0, "orundum_per_order": 20.0,
+      "_comment": "PRTS 开采协力: 贸易站Lv3, 2源石碎片->20合成玉, 基础获取时间2:00:00。需配合启用制造站源石碎片线。"},
+    "quality_order_profiles": {
+      "alpha": {"base_minutes_per_order": 236.4, "gold_per_order": 3.4, "lmd_per_order": 1700,
+        "prob_2_gold": 0.15, "prob_3_gold": 0.30, "native_4_gold_probability": 0.55, "warmup_hours": 3.0,
+        "_comment": "PRTS 3级站单个α级/小幅提质技能: 2/3/4赤金单=15%/30%/55%, 入驻3小时后达到最大概率。"},
+      "alpha2": {"base_minutes_per_order": 244.32, "gold_per_order": 3.52, "lmd_per_order": 1760,
+        "prob_2_gold": 0.13, "prob_3_gold": 0.22, "native_4_gold_probability": 0.65, "warmup_hours": 3.0,
+        "_comment": "PRTS 3级站两个α级提质技能叠加峰值: 2/3/4赤金单=13%/22%/65%, 入驻3小时后达到最大概率。"},
+      "beta": {"base_minutes_per_order": 262.8, "gold_per_order": 3.8, "lmd_per_order": 1900,
+        "prob_2_gold": 0.05, "prob_3_gold": 0.10, "native_4_gold_probability": 0.85, "warmup_hours": 5.0,
+        "_comment": "PRTS 3级站单个β级/提质技能: 2/3/4赤金单=5%/10%/85%, 入驻5小时后达到最大概率。"}
+    },
+    "unsold_gold_value_factor": 0.0,
+    "_comment_unsold": "赤金是中间产物, 只有卖出才变现龙门币。未卖出的赤金按 赤金素材价值×此系数 计(默认0=必须卖出才算收益, 迫使制造↔贸易闭环)。设1.0则全计。",
+
+    "special_ops": {
+      "_comment": "改写赤金订单的特殊干员(PRTS技能文本)。详见 README。",
+      "佩佩": {"base_minutes_per_order": 270, "gold_per_order": 0, "lmd_per_order": 1000,
+        "_comment": "特别独占订单: 固定4:30/单, 不受订单效率影响, 0赤金→1000龙门币。特殊订单优先级高。"},
+      "可露希尔": {"base_minutes_per_order": 144, "gold_per_order": 2, "lmd_per_order": 1200,
+        "_comment": "可露希尔特别订单: 2:24/单, 2赤金→1200龙门币。特殊订单优先级较高。"},
+      "但书": {"gold_bonus_e2": 2.0, "gold_bonus_e0": 1.0,
+        "_comment": "违约单: 原生交付<4的赤金单+2(精2)/+1(精0)赤金交付, 报酬同步每赤金+500。出单时间不变, 继承普通/高品质原订单概率。与龙舌兰互斥(违约单不视作赤金订单)。"},
+      "龙舌兰": {"lmd_bonus_e2": 500.0, "lmd_bonus_e0": 250.0,
+        "_comment": "投资: 原生≥4赤金订单龙门币+500(精2)/+250(精0), 不额外消耗赤金。普通3级站只有20%原生4赤金单, 引擎按 native_4_gold_probability 折成期望加成。但书在同站则全部失效。"},
+      "巫恋": {"self_eff": 45.0,
+        "_comment": "低语(精2): 同站『其他干员』技能提供的订单效率归零, 这些其他干员每人自身+45%(不含巫恋自身)。贸易站每名工作干员基础+1%仍生效, 三人站=基础3%+其他2人×45%=93%。全员心情消耗+0.25/h(由通用心情解析处理)。解放搭档席位给龙舌兰/柏喙等不靠效率的干员。"},
+      "U-Official": {"gold_per_order": 2, "lmd_per_order": 1000,
+        "_comment": "天真的谈判者/尤里卡订单: 当前贸易站赤金订单交付数必定为2, 报酬1000龙门币, 其他属性继承原订单, 不视作违约订单。"}
+    }
+  },
+
+  "power": {
+    "_comment": "发电站(满级3级)。PRTS: 满级供电270/座; 无人机6分/架(≈10/h); 全部清理后无人机持有上限235, 超出上限会丢弃。无人机充能%仅加速无人机回复。",
+    "level": 3,
+    "slots": 1,
+    "supply_per_station": 270,
+    "supply_per_station_by_level": {"1": 60, "2": 130, "3": 270},
+    "drone_per_hour_base": 10.0,
+    "drone_cap": 235,
+    "base_charge_bonus_per_operator": 5.0,
+    "drone_minutes_per_drone": 3.0,
+    "_comment2": "无人机不是素材, 而是加速生产: 每架使制造/贸易当前产物基础耗时-3分钟。全天无人机折合的产能分钟全部投入收益最高的生产线(通常赤金)。"
+  },
+
+  "electricity": {
+    "_comment": "PRTS 电力消耗。优化器据此校验布局可行性(发电站供电 ≥ 总消耗), 标准布局需≥3发电站。",
+    "consumption": {"manufacture": 60, "trading": 60, "meeting": 60, "hire": 60,
+      "training": 60, "workshop": 10, "dormitory": 65, "control": 0, "power": 0},
+    "consumption_by_level": {
+      "manufacture": {"1": 10, "2": 30, "3": 60},
+      "trading": {"1": 10, "2": 30, "3": 60},
+      "meeting": {"1": 10, "2": 30, "3": 60},
+      "hire": {"1": 10, "2": 30, "3": 60},
+      "training": {"1": 10, "2": 30, "3": 60},
+      "workshop": {"1": 10, "2": 10, "3": 10},
+      "dormitory": {"1": 10, "2": 20, "3": 30, "4": 45, "5": 65}
+    }
+  },
+
+  "control": {
+    "_comment": "控制中枢(满级5位)。驻员提供全局加成(所有制造站/贸易站效率、心情恢复), 同种效果取最高。",
+    "level": 5,
+    "drone_assist_min_level": 3,
+    "slots": 5,
+    "slots_by_level": {"1": 1, "2": 2, "3": 3, "4": 4, "5": 5}
+  },
+
+  "dormitory": {
+    "_comment": "宿舍(最多4间×5位)。PRTS公式: 基础恢复/h = 1.5+0.1×等级 + 0.0004×min(氛围,1000×等级)。L5空房=2.0/h, 满氛围5000=4.0/h。恢复干员技能(全员/单体他人/自身三类: 同类取最高、类别间叠加)再加在其上。氛围由家具提供, 上限=1000×等级。",
+    "max_rooms": 4,
+    "slots": 5,
+    "level": 5,
+    "ambiance": 5000,
+    "base_recover_per_hour": 2.0,
+    "_comment_base": "base_recover_per_hour 为后备值; 若给定 level/ambiance 则按上面PRTS公式实时计算(默认 L5+满氛围=4.0/h)。把 ambiance 调低即模拟家具不全的宿舍。"
+  },
+
+  "meeting":  {"slots": 2, "slots_by_level": {"1": 2, "2": 2, "3": 2},
+    "level": 3, "clue_per_hour_base": 0.05, "clue_limit": 10,
+    "daily_clue_if_staffed": 1.0,
+    "dorm_ambience_bonus": [[2000, 5.0], [3000, 10.0], [4000, 15.0]],
+    "rarity_bonus": {"4": 2.0, "5": 4.0, "6": 5.0},
+    "elite_bonus": {"1": 8.0, "2": 16.0},
+    "level_bonus": {"1": 7.0, "2": 9.0, "3": 11.0},
+    "non_fatigued_bonus": 5.0,
+    "_comment": "会客室。PRTS: 线索基础20小时/份(0.05/h), 自有库最多10份且达到上限停止入库, 有干员进驻时每日4:00发放1份会客室线索。模拟按上线收取间隔应用库容上限。另计宿舍总氛围、干员稀有度/精英阶段、会客室等级、非涣散+5%与后勤技能。线索→信用→理智: 1信用≈0.0413理智, 每份线索约40信用, 线索≈1.65理智(BioHazard/逻辑元); 1%会客室效率≈0.08%贸易/制造效率。"},
+  "hire":     {"slots": 1, "slots_by_level": {"1": 1, "2": 1, "3": 1},
+    "level": 3, "recruit_slots": 4, "recruit_slots_by_level": {"1": 2, "2": 3, "3": 4}, "contact_per_hour_base": 0.08333333333333333, "base_eff_per_operator": 5.0, "contact_limit": 3,
+    "ap_per_refresh": 19.0,
+    "_comment": "办公室。PRTS: 满级提供4个公开招募位, 公招刷新基础12小时/次(1/12/h), 人力资源余量上限3; 有人员进驻时基础联络效率+5%。每个招募位(不包含初始招募位)类技能按 recruit_slots-1 缩放。产物是公招刷新而非招募许可, 按每次刷新期望理智 ap_per_refresh 估值。19.0 = 每次刷新平均2.67绿票+0.26黄票≈0.04抽(BioHazard/逻辑元 https://www.bilibili.com/video/BV1wLDqBvEKC/ , 非氪佬未换完月度黄票时); 1%办公室效率≈2.09%贸易/制造效率。"},
+  "workshop": {"level": 3, "slots": 1, "slots_by_level": {"1": 1, "2": 1, "3": 1},
+    "crafts_per_day": 0.0, "craft_category": "any", "craft_mood_cost": 0.0, "craft_lmd_cost": 0.0, "base_byproduct_chance": 0.0, "ap_per_byproduct": 0.0,
+    "_comment": "加工站。PRTS: 1~3级进驻人员上限均为1, 电力消耗均为10; 配方按加工站等级解锁。副产品概率仅在有加工任务时变现: 期望收益=实际加工次数×(base_byproduct_chance+匹配加工类别的技能副产品提升%)×ap_per_byproduct。craft_category: any/elite/skill/chip/building/alloy/polyester/oriron/rock/crystal/ketone/device; craft_mood_cost 为该加工配方单次心情消耗, >0 时按驻员当前心情/上限截断加工次数; craft_lmd_cost 为单次加工龙门币消耗, 用于瑕光等减免龙门币消耗技能估值。默认0保持不计心情/龙门币限制, 需要模拟加工任务时再配置。"},
+  "training": {"slots": 2, "level": 3, "max_mastery_by_level": {"1": 1, "2": 2, "3": 3},
+    "active_plan": true, "target_mastery_level": 3, "target_profession": null, "target_branch": null, "zuo_le_martial_ready": false,
+    "base_speed_per_operator": 5.0,
+    "ap_value_per_hour": 0.0, "base_session_hours": 0.0,
+    "_comment": "训练室。PRTS: 有训练计划时, 协助位进驻非涣散干员专精训练速度+5%, 后勤技能另加; 无训练计划时协助位不视为工作状态且无心情消耗。target_mastery_level/target_profession/target_branch 用于扣除不匹配的“专精至N级/职业/分支”条件项, 默认只指定等级3以维持满条件估值。zuo_le_martial_ready=true 表示左乐武道已达上限, 且仅在近卫M1时按立即完成生效。加速专精不直接产理智素材, 默认收益0。ap_value_per_hour 给等效训练小时估值; base_session_hours>0 时覆盖基础训练时长, 否则按 PRTS M1/M2/M3=8/16/24h 自动推导, 并用于艾丽妮/逻各斯的下次训练初始50%进度折算。"},
+
+  "mood": {
+    "_comment": "心情机制(PRTS)。上限24; 工作干员基础消耗1.0/h。制造/贸易等同房间人数基础减免: 1人0, 2人0.05, 3人0.1; 控制中枢另按每名工作干员0.05。净消耗 = 1.0 - 减免 + 干员技能消耗。心情>0满效率工作, 心情=0则技能与加成失效(注意力涣散)。",
+    "cap": 24.0,
+    "base_drain_per_hour": 1.0,
+    "control_drain_reduction": 0.05,
+    "occupancy_reduction": [0.0, 0.0, 0.05, 0.1]
+  },
+
+  "layout": {
+    "_comment": "基建布局。production_slots=9 为制造/贸易/发电共享的经济区房间数(标准满级)。优化器枚举配比并按 electricity 校验可行性, 且遵守 PRTS 建造上限: 制造/贸易各最多5, 发电最多3。",
+    "production_slots": 9,
+    "min_power": 1,
+    "max_manufacture": 5,
+    "max_trading": 5,
+    "max_power": 3,
+    "fixed_rooms": {"control": 1, "meeting": 1, "hire": 1, "workshop": 1, "training": 1, "dormitory": 4}
+  },
+
+  "schedule": {
+    "_comment": "默认每日上线时刻(24h制), 可被命令行 --logins 覆盖。1~4次。",
+    "login_hours": [0, 6, 12, 18]
+  }
+}
