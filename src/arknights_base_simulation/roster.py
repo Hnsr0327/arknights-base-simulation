@@ -102,7 +102,7 @@ def load_roster(xlsx_path: str | Path) -> list[Operator]:
 if __name__ == "__main__":  # pragma: no cover
     import sys
 
-    path = sys.argv[1] if len(sys.argv) > 1 else "data/干员练度表.xlsx"
+    path = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parent.parent.parent / "data" / "干员练度表.xlsx")
     ops = load_roster(path)
     print(f"已招募 {len(ops)} 名干员")
     for op in ops[:15]:

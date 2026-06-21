@@ -16,7 +16,7 @@ from .roster import load_roster
 from .skills import ROOM_CN, SkillDB
 
 DEFAULT_CONFIG = Path(__file__).resolve().parent.parent.parent / "config.json"
-DEFAULT_XLSX = "data/干员练度表.xlsx"
+DEFAULT_XLSX = Path(__file__).resolve().parent.parent.parent / "data" / "干员练度表.xlsx"
 
 LINE_TO_MAA_PRODUCT = {
     "作战记录": "Battle Record",

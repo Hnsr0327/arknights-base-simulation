@@ -504,7 +504,7 @@ def test_config_value_changes_strategy():
     """龙门币估值大幅提高时, 最优布局应出现贸易站(龙门币流)。"""
     from arknights_base_simulation.roster import load_roster
 
-    xlsx = "data/干员练度表.xlsx"
+    xlsx = str(Path(__file__).resolve().parent.parent / "data" / "干员练度表.xlsx")
     if not Path(xlsx).exists():
         return  # 没有练度表则跳过
     prof = build_profiles(load_roster(xlsx), _DB)

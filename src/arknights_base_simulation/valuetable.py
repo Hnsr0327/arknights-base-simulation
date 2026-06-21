@@ -47,6 +47,6 @@ def load_value_table(xlsx_path: str | Path) -> dict[str, float]:
 if __name__ == "__main__":  # pragma: no cover
     import sys
 
-    path = sys.argv[1] if len(sys.argv) > 1 else "data/物品价值表.xlsx"
+    path = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parent.parent.parent / "data" / "物品价值表.xlsx")
     for k, v in load_value_table(path).items():
         print(f"{k:10} {v}")
