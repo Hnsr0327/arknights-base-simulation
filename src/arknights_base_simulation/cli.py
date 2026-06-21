@@ -61,18 +61,27 @@ def _maa_rooms(asg: Assignment) -> dict:
 
 def export_maa(asg: Assignment, layout: tuple[int, int, int],
                shifts: list[Assignment] | None = None,
-               schedule: Schedule | None = None) -> dict:
+               schedule: Schedule | None = None,
+               perpetual: set[str] | None = None) -> dict:
     """将 Assignment 导出为 MAA 自定义基建排班表 JSON (base-scheduling-schema)。"""
+    perpetual_list = sorted(perpetual) if perpetual else []
     if shifts and schedule and len(shifts) > 1:
         plans = []
         for i, s_asg in enumerate(shifts):
             start = schedule.hours[i]
             end = schedule.hours[(i + 1) % len(schedule.hours)]
-            plans.append({
+            plan = {
                 "name": f"班次 {i+1} ({_fmt_hour(start)}~{_fmt_hour(end)})",
                 "period": [[_fmt_hour(start), _fmt_hour(end)]],
                 "rooms": _maa_rooms(s_asg),
-            })
+            }
+            if perpetual_list:
+                plan["Fiammetta"] = {
+                    "enable": True,
+                    "target": perpetual_list[i % len(perpetual_list)],
+                    "order": "pre",
+                }
+            plans.append(plan)
         return {"plans": plans}
     return {
         "plans": [{
@@ -154,11 +163,9 @@ def render_sim(sim, days: int) -> str:
     L.append(f"稳态日均(乐观参考): {sim.steady_ap:.1f} 理智/天")
     L.append("")
     L.append("  日次   日产理智   平均工作占比   工位休息空缺(人·时)")
-    peak = max((d.ap for d in sim.days), default=1.0) or 1.0
     for d in sim.days:
-        bar = "█" * int(round(28 * d.ap / peak))
         L.append(f"   D{d.day:<3}  {d.ap:8.1f}      {d.avg_work_fraction*100:5.1f}%        "
-                 f"{d.resting_op_hours:6.0f}   {bar}")
+                 f"{d.resting_op_hours:6.0f}")
     L.append("")
     L.append(f"  {days}天累计: {sim.cumulative_ap:.0f} 理智  (日均 {sim.cumulative_ap / days:.1f}/天)")
     L.append(f"  可持续日产(后半程均值) ≈ {sim.converged_ap:.1f}/天, 为稳态乐观值的 "
@@ -362,11 +369,11 @@ def main(argv=None) -> int:
                        initial_mood=args.initial_mood, perpetual=perpetual)
         print(render_sim(sim, days))
 
-        if args.export_maa:
-            maa_plan = export_maa(shifts[0], layout, shifts=shifts, schedule=schedule)
-            Path(args.export_maa).write_text(
-                json.dumps(maa_plan, ensure_ascii=False, indent=4) + "\n", encoding="utf-8")
-            print(f"已导出 MAA 排班表 ({len(shifts)} 班次): {args.export_maa}", file=sys.stderr)
+        maa_path = args.export_maa or "maa_plan.json"
+        maa_plan = export_maa(shifts[0], layout, shifts=shifts, schedule=schedule, perpetual=perpetual)
+        Path(maa_path).write_text(
+            json.dumps(maa_plan, ensure_ascii=False, indent=4) + "\n", encoding="utf-8")
+        print(f"已导出 MAA 排班表 ({len(shifts)} 班次): {maa_path}", file=sys.stderr)
         return 0
 
     def progress(i, n, layout, ap):
@@ -377,13 +384,13 @@ def main(argv=None) -> int:
                                      layout=layout_fixed, user_seed=lock_seed or None)
     print("", file=sys.stderr)
 
-    if args.export_maa:
-        maa_plan = export_maa(asg, layout)
-        Path(args.export_maa).write_text(
-            json.dumps(maa_plan, ensure_ascii=False, indent=4) + "\n",
-            encoding="utf-8",
-        )
-        print(f"已导出 MAA 排班表: {args.export_maa}", file=sys.stderr)
+    maa_path = args.export_maa or "maa_plan.json"
+    maa_plan = export_maa(asg, layout)
+    Path(maa_path).write_text(
+        json.dumps(maa_plan, ensure_ascii=False, indent=4) + "\n",
+        encoding="utf-8",
+    )
+    print(f"已导出 MAA 排班表: {maa_path}", file=sys.stderr)
 
     if args.as_json:
         out = {

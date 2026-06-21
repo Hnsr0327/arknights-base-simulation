@@ -168,7 +168,7 @@
   "layout": {
     "_comment": "基建布局。production_slots=9 为制造/贸易/发电共享的经济区房间数(标准满级)。优化器枚举配比并按 electricity 校验可行性, 且遵守 PRTS 建造上限: 制造/贸易各最多5, 发电最多3。",
     "production_slots": 9,
-    "min_power": 1,
+    "min_power": 2,
     "max_manufacture": 5,
     "max_trading": 5,
     "max_power": 3,

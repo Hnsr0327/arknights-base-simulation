@@ -19,8 +19,15 @@ from .skills import SkillDB
 
 # 特殊贸易干员的"等效订单效率"(仅用于优化器候选排序; 引擎按真实机制结算)。
 # 但书违约单≈+55%吞吐; 龙舌兰投资只作用于3级站20%的原生4赤金单,
-# 期望收益约 +100/1450 = +6.9%。巫恋静态已带 trade_eff=45, 无需补。
-SPECIAL_TRADE_EFF = {"但书": 55.0, "龙舌兰": 7.0}
+# 期望收益约 +100/1450 = +6.9%。可露希尔特别订单: 144分/单(vs 203.4),
+# 1200龙门币/2赤金(vs 1450/2.9), 吞吐≈+17%, 但阻止高品质订单和龙舌兰投资。
+# 巫恋静态已带 trade_eff=45, 无需补。
+SPECIAL_TRADE_EFF = {"但书": 55.0, "可露希尔": 25.0, "龙舌兰": 7.0}
+PERPETUAL_007_OPS = {"但书", "龙舌兰"}
+# 归零制造干员: 清零同站他人产力, 按设施/人数缩放自身。
+# 独占或少人时产力远不如普通 30%+ 干员组合, 排除出常规制造候选。
+# 仅在自动化捆绑种子中参与评估。
+AUTOMATION_MFG = {"温蒂", "异客", "森蚺", "冬时"}
 # 特殊贸易组合的协同伙伴(无"当与X"描述, 硬编码): 巫恋低语解放席位 -> 配龙舌兰/柏喙/卡夫卡。
 SPECIAL_TRADE_PARTNERS = {"巫恋": {"龙舌兰", "柏喙", "卡夫卡"}}
 QUALITY_TRADE_ALPHA = {"裁缝·α", "手工艺品·α", "鉴定师的眼光", "懂行"}
@@ -279,6 +286,7 @@ class Optimizer:
         v_per_eff = (base_orders_ph / 100.0
                      * to["lmd_per_order"] * self.cfg["material_values_ap"]["龙门币"] * 24.0)
 
+        seeded = set(seed)
         cand = []  # (value, name, role)
         for nm, prof in self.prof.items():
             if nm in used:
@@ -286,7 +294,7 @@ class Optimizer:
             ms = prof.stat("manufacture")
             ts = prof.stat("trading")
             eff_prod = self._effective_prod(nm, m, t, p)
-            if eff_prod > 0:
+            if eff_prod > 0 and (nm not in AUTOMATION_MFG or nm in seeded):
                 cand.append((eff_prod * v_per_prod, nm, "manufacture"))
             eff_rank = (ts.trade_eff if ts else 0.0) + SPECIAL_TRADE_EFF.get(nm, 0.0) + self._quality_trade_eff(nm)
             if eff_rank > 0:
@@ -295,10 +303,17 @@ class Optimizer:
 
         man_ops: list[str] = []
         trade_ops: list[str] = []
+        man_room_pins: dict[int, list[str]] = {}
         for nm, target in seed.items():
-            if target == "manufacture" and nm in self.prof and nm not in used:
+            if nm not in self.prof or nm in used:
+                continue
+            if target == "manufacture":
                 man_ops.append(nm); take(nm)
-            elif target == "trading" and nm in self.prof and nm not in used:
+            elif target.startswith("manufacture:"):
+                ri = int(target.split(":")[1])
+                man_room_pins.setdefault(ri, []).append(nm)
+                man_ops.append(nm); take(nm)
+            elif target == "trading":
                 trade_ops.append(nm); take(nm)
         for _v, nm, role in cand:
             if nm in used:
@@ -311,25 +326,54 @@ class Optimizer:
                 break
 
         # 分配到房间: 同类别严格不混编(gold 和 record 不进同一房间, all 填补空位)
+        pinned_nms = {nm for ops in man_room_pins.values() for nm in ops}
         by_cat: dict[str, list[str]] = {"gold": [], "record": [], "all": []}
         for nm in man_ops:
+            if nm in pinned_nms:
+                continue
             by_cat.setdefault(self._prod_category(nm), by_cat["all"]).append(nm)
         fillers = list(by_cat["all"])
-        man_rooms: list[list[str]] = []
-        for cat in ("gold", "record"):
-            pool = by_cat[cat]
-            pos = 0
-            while pos < len(pool) and len(man_rooms) < m:
+        if man_room_pins:
+            man_rooms: list[list[str]] = [[] for _ in range(m)]
+            for ri, ops in man_room_pins.items():
+                if ri < m:
+                    man_rooms[ri] = list(ops)
+            ri_fill = 0
+            for cat in ("gold", "record"):
+                pool = by_cat[cat]
+                pos = 0
+                while pos < len(pool) and ri_fill < m:
+                    while ri_fill < m and man_rooms[ri_fill]:
+                        ri_fill += 1
+                    if ri_fill >= m:
+                        break
+                    n = ms_per_room[ri_fill]
+                    room = pool[pos:pos + n]
+                    pos += len(room)
+                    while len(room) < n and fillers:
+                        room.append(fillers.pop(0))
+                    man_rooms[ri_fill] = room
+                    ri_fill += 1
+            for ri in range(m):
+                n = ms_per_room[ri]
+                while len(man_rooms[ri]) < n and fillers:
+                    man_rooms[ri].append(fillers.pop(0))
+        else:
+            man_rooms: list[list[str]] = []
+            for cat in ("gold", "record"):
+                pool = by_cat[cat]
+                pos = 0
+                while pos < len(pool) and len(man_rooms) < m:
+                    n = ms_per_room[len(man_rooms)]
+                    room = pool[pos:pos + n]
+                    pos += len(room)
+                    while len(room) < n and fillers:
+                        room.append(fillers.pop(0))
+                    man_rooms.append(room)
+            while len(man_rooms) < m:
                 n = ms_per_room[len(man_rooms)]
-                room = pool[pos:pos + n]
-                pos += len(room)
-                while len(room) < n and fillers:
-                    room.append(fillers.pop(0))
-                man_rooms.append(room)
-        while len(man_rooms) < m:
-            n = ms_per_room[len(man_rooms)]
-            man_rooms.append(fillers[:n])
-            fillers = fillers[n:]
+                man_rooms.append(fillers[:n])
+                fillers = fillers[n:]
         for room_ops in man_rooms:
             asg.manufacture.append([self.lines[0], room_ops])
         pos = 0
@@ -429,6 +473,23 @@ class Optimizer:
                 seeds.append({ctrl_nm: "control"})
 
         return seeds
+
+    def _automation_seed(self) -> dict[str, str] | None:
+        """Automation bundle: 归零制造干员各占独立房间 + 依赖链基础设施。
+
+        依赖链: 承曦格雷伊发电(+1虚拟电站) → 自动化干员产力按电站数缩放;
+        森蚺控制(+2虚拟电站, 需Lancet-2发电) → 进一步提升。
+        类似感知链种子把车尔尼/爱丽丝放宿舍——都是前置条件。
+        """
+        seed: dict[str, str] = {}
+        if "Lancet-2" in self.prof:
+            seed["Lancet-2"] = "power"
+        if "承曦格雷伊" in self.prof:
+            seed["承曦格雷伊"] = "power"
+        auto_mfg = [nm for nm in ("温蒂", "冬时", "异客") if nm in self.prof]
+        for i, nm in enumerate(auto_mfg):
+            seed[nm] = f"manufacture:{i}"
+        return seed if auto_mfg else None
 
     def _assign_seeded(self, m: int, t: int, p: int, seed: dict[str, str]) -> Assignment:
         """Like _assign but pre-places seed operators before greedy fill.
@@ -568,7 +629,8 @@ class Optimizer:
         locked = locked or set()
         cur = self.eng.evaluate(asg).ap_per_day
         # 生产位可替换的候选池
-        man_pool = [nm for nm in self._candidates("manufacture", self._best_prod) if nm not in used]
+        man_pool = [nm for nm in self._candidates("manufacture", self._best_prod)
+                    if nm not in used and nm not in AUTOMATION_MFG]
         trade_pool = [
             nm for nm in self.prof
             if nm not in used
@@ -581,9 +643,10 @@ class Optimizer:
             ),
             reverse=True,
         )
-        # 特殊干员(但书/龙舌兰)静态 trade_eff≈0, 不会进 _candidates, 显式优先纳入
         for nm in SPECIAL_TRADE_EFF:
-            if nm in self.prof and nm not in used and nm not in trade_pool:
+            if nm in self.prof and nm not in used:
+                if nm in trade_pool:
+                    trade_pool.remove(nm)
                 trade_pool.insert(0, nm)
         improved = True
         rounds = 0
@@ -1285,14 +1348,23 @@ class Optimizer:
                  user_seed: dict[str, str] | None = None) -> tuple[Assignment, Result, tuple]:
         best = None
         auto_seeds = self._synergy_seeds()
+        auto_seed = self._automation_seed()
         if user_seed:
             seeds = [user_seed]
         else:
             seeds = [{}] + auto_seeds
+            if auto_seed:
+                seeds.append(auto_seed)
         layouts = [layout] if layout else self._enumerate_layouts()
         total = len(layouts) * len(seeds)
         step = 0
         for m, t, p in layouts:
+            probe = self._assign(m, t, p)
+            if self.eng.evaluate(probe).ap_per_day < 0:
+                step += len(seeds)
+                if progress:
+                    progress(step, total, (m, t, p), -999999)
+                continue
             for seed in seeds:
                 asg = self._assign_seeded(m, t, p, seed) if seed else self._assign(m, t, p)
                 self._optimize_lines(asg)
@@ -1307,10 +1379,10 @@ class Optimizer:
         return best
 
     def _identify_perpetual(self) -> set[str]:
-        """Identify 007 perpetual operators: SPECIAL_TRADE_EFF ops + Fiammetta available."""
+        """Identify 007 perpetual operators: 但書+龙舌兰, sustained by Fiammetta."""
         if "菲亚梅塔" not in self.prof:
             return set()
-        return {nm for nm in SPECIAL_TRADE_EFF if nm in self.prof}
+        return {nm for nm in PERPETUAL_007_OPS if nm in self.prof}
 
     def optimize_rotation(self, n_shifts: int, local_search: bool = True,
                           progress=None,
@@ -1355,8 +1427,17 @@ class Optimizer:
             else:
                 build_order.extend(gap_order[1:])
 
+            # Early-out: check first shift for power/layout feasibility
+            probe = self._assign(m, t, p)
+            if self.eng.evaluate(probe).ap_per_day < 0:
+                step += 1
+                if progress:
+                    progress(step, total, (m, t, p), -999999)
+                continue
+
             usage: dict[str, int] = {}
             shifts_built = [None] * n_gaps
+            fixed_lines: list[str] | None = None
             for priority, g_idx in enumerate(build_order):
                 maxed = {nm for nm, cnt in usage.items() if cnt >= max_work}
                 maxed -= perpetual
@@ -1369,12 +1450,18 @@ class Optimizer:
                     gap_asg = self._assign_seeded(m, t, p, seed)
                 else:
                     gap_asg = self._assign(m, t, p, exclude=maxed)
-                self._optimize_lines(gap_asg)
+                if fixed_lines is None:
+                    self._optimize_lines(gap_asg)
+                    fixed_lines = [line for line, _ops in gap_asg.manufacture]
+                else:
+                    for i, (_, ops) in enumerate(gap_asg.manufacture):
+                        gap_asg.manufacture[i] = (fixed_lines[i], ops)
                 locked = (set(seed) if seed else set()) | perpetual
                 gap_asg = self._optimize_assignment(
                     gap_asg, local_search, locked=locked or None,
                     label=f"shift-g{g_idx}")
-                self._optimize_lines(gap_asg)
+                for i, (_, ops) in enumerate(gap_asg.manufacture):
+                    gap_asg.manufacture[i] = (fixed_lines[i], ops)
 
                 if perpetual:
                     self._setup_fiammetta(gap_asg, perpetual)
