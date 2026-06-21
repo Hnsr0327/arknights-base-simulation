@@ -25,45 +25,59 @@ LINE_TO_MAA_PRODUCT = {
 }
 
 
-def export_maa(asg: Assignment, layout: tuple[int, int, int]) -> dict:
-    """将 Assignment 导出为 MAA 自定义基建排班表 JSON (base-scheduling-schema)。"""
-    rooms: dict[str, list] = {}
+def _fmt_hour(h: float) -> str:
+    hh = int(h) % 24
+    mm = int((h % 1) * 60)
+    return f"{hh:02d}:{mm:02d}"
 
+
+def _maa_rooms(asg: Assignment) -> dict:
+    rooms: dict[str, list] = {}
     rooms["manufacture"] = [
         {"operators": list(ops), "product": LINE_TO_MAA_PRODUCT.get(line, "Pure Gold"),
          "sort": False, "autofill": False}
         for line, ops in asg.manufacture
     ]
-
     rooms["trading"] = [
         {"operators": list(ops), "sort": False, "autofill": False}
         for ops in asg.trading
     ]
-
     rooms["control"] = [{"operators": list(asg.control), "sort": False, "autofill": False}]
-
     rooms["power"] = [
         {"operators": list(ops), "sort": False, "autofill": False}
         if ops else {"skip": True}
         for ops in asg.power
     ]
-
     rooms["meeting"] = [{"operators": list(asg.meeting), "sort": False, "autofill": False}]
-
     rooms["hire"] = [{"operators": list(asg.hire), "sort": False, "autofill": False}]
-
     rooms["dormitory"] = [
         {"operators": list(ops), "sort": False, "autofill": True}
         for ops in asg.dormitory
     ]
-
     if asg.workshop:
         rooms["processing"] = [{"operators": list(asg.workshop), "sort": False, "autofill": False}]
+    return rooms
 
+
+def export_maa(asg: Assignment, layout: tuple[int, int, int],
+               shifts: list[Assignment] | None = None,
+               schedule: Schedule | None = None) -> dict:
+    """将 Assignment 导出为 MAA 自定义基建排班表 JSON (base-scheduling-schema)。"""
+    if shifts and schedule and len(shifts) > 1:
+        plans = []
+        for i, s_asg in enumerate(shifts):
+            start = schedule.hours[i]
+            end = schedule.hours[(i + 1) % len(schedule.hours)]
+            plans.append({
+                "name": f"班次 {i+1} ({_fmt_hour(start)}~{_fmt_hour(end)})",
+                "period": [[_fmt_hour(start), _fmt_hour(end)]],
+                "rooms": _maa_rooms(s_asg),
+            })
+        return {"plans": plans}
     return {
         "plans": [{
             "name": f"arknights_base_simulation {layout[0]}-{layout[1]}-{layout[2]}",
-            "rooms": rooms,
+            "rooms": _maa_rooms(asg),
         }]
     }
 
@@ -347,6 +361,12 @@ def main(argv=None) -> int:
         sim = simulate(opt.eng, shifts[0], schedule, shifts=shifts, days=days,
                        initial_mood=args.initial_mood, perpetual=perpetual)
         print(render_sim(sim, days))
+
+        if args.export_maa:
+            maa_plan = export_maa(shifts[0], layout, shifts=shifts, schedule=schedule)
+            Path(args.export_maa).write_text(
+                json.dumps(maa_plan, ensure_ascii=False, indent=4) + "\n", encoding="utf-8")
+            print(f"已导出 MAA 排班表 ({len(shifts)} 班次): {args.export_maa}", file=sys.stderr)
         return 0
 
     def progress(i, n, layout, ap):

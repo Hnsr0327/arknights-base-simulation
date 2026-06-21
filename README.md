@@ -35,12 +35,15 @@ python -m arknights_base_simulation --logins 8,22 --lock control:令,夕 --lock 
 
 1. 运行优化器并导出 MAA 排班表:
    ```bash
+   # 单班次
    python -m arknights_base_simulation --logins 8,22 --export-maa maa_plan.json
+   # 多班次 — 自动生成按时间段切换的多组排班
+   python -m arknights_base_simulation --logins 0,13,16.5 --n-shifts 3 --export-maa maa_plan.json
    ```
 2. 将生成的 `maa_plan.json` 复制到 MAA 安装目录下的 `resource/custom_infrast/`
 3. 在 MAA 中打开 **基建换班** 任务, 选择 **自定义基建换班** 模式, 即可使用导出的排班方案
 
-> 注: `--export-maa` 目前仅支持单班次模式。多班次(`--n-shifts`)的排班需手动导入或参考输出自行编排。
+> 多班次导出时, 每个班次对应一个 MAA plan, 带有 `period` 时间段。MAA 会根据当前时间自动选择对应的排班方案。
 
 <details>
 <summary>全部命令行参数</summary>
