@@ -1093,16 +1093,27 @@ class Optimizer:
             if self._get_op(asg, rt, ri, si) == "菲亚梅塔":
                 if rt == "dormitory":
                     return
+                self._remove_from_asg(asg, "菲亚梅塔")
                 break
-        else:
+        if not asg.dormitory:
             return
-        self._remove_from_asg(asg, "菲亚梅塔")
-        if asg.dormitory:
-            dorm_slots = self.cfg["dormitory"]["slots"]
-            for d_ops in asg.dormitory:
-                if len(d_ops) < dorm_slots:
-                    d_ops.append("菲亚梅塔")
-                    return
+        dorm_slots = self.cfg["dormitory"]["slots"]
+        for d_ops in asg.dormitory:
+            if len(d_ops) < dorm_slots:
+                d_ops.append("菲亚梅塔")
+                return
+        # All dorm rooms full — displace lowest-value dorm operator
+        worst_val, worst_room, worst_idx = float("inf"), 0, 0
+        for ri, d_ops in enumerate(asg.dormitory):
+            for si, nm in enumerate(d_ops):
+                st = self.prof.get(nm, None)
+                if not st:
+                    continue
+                ds = st.stat("dormitory")
+                v = ds.dorm_recover if ds else 0.0
+                if v < worst_val:
+                    worst_val, worst_room, worst_idx = v, ri, si
+        asg.dormitory[worst_room][worst_idx] = "菲亚梅塔"
 
     def _joint_shifts(self, m: int, t: int, p: int, n_gaps: int,
                       max_work: int, local_search: bool,
@@ -1295,26 +1306,30 @@ class Optimizer:
                     best = (asg, res, (m, t, p))
         return best
 
+    def _identify_perpetual(self) -> set[str]:
+        """Identify 007 perpetual operators: SPECIAL_TRADE_EFF ops + Fiammetta available."""
+        if "菲亚梅塔" not in self.prof:
+            return set()
+        return {nm for nm in SPECIAL_TRADE_EFF if nm in self.prof}
+
     def optimize_rotation(self, n_shifts: int, local_search: bool = True,
                           progress=None,
                           layout: tuple[int, int, int] | None = None,
-                          user_seed: dict[str, str] | None = None) -> tuple[list[Assignment], list[Result], tuple]:
+                          user_seed: dict[str, str] | None = None) -> tuple[list[Assignment], list[Result], tuple, set[str]]:
         """生成按上线间隔轮休的排班(每 gap 一组, 不同休息轮换)。
 
         工休比由宿舍恢复率自动决定 (243@Lv5 → 3:1, 252@Lv1 → 1:1)。
         算法:
-          1. 建最优满员模板(local_search + synergy)
-          2. 识别 007 永驻干员(排除出休息组)
-          3. 生成多组控制中枢主题(不同全局加成)
-          4. 按价值均衡分休息组(007 干员除外)
-          5. 逐 gap 用替补填入休息空位, 并切换控制中枢主题
-          6. 各 gap 独立局部搜索 + 生产线优化
-        返回 n_gaps 个 Assignment (每个上线间隔一组)。
+          1. 识别 007 永驻干员(菲亚梅塔 mood swap 维持)
+          2. 逐 gap 独立构建排班, 007 干员 seed 进每班次
+          3. 007 干员不受 max_work 限制, 菲亚梅塔固定宿舍
+          4. 各 gap 独立局部搜索 + 生产线优化
+        返回 (shifts, results, layout, perpetual)。
         """
         if n_shifts <= 1:
             asg, res, layout = self.optimize(local_search=local_search, progress=progress,
                                              layout=layout, user_seed=user_seed)
-            return [asg], [res], layout
+            return [asg], [res], layout, set()
 
         import sys
         n_gaps = len(self.sch.gaps)
@@ -1324,6 +1339,8 @@ class Optimizer:
         total = len(layouts)
         step = 0
 
+        perpetual = self._identify_perpetual()
+
         for m, t, p in layouts:
             themes = self._control_themes()
             gap_order = sorted(range(n_gaps),
@@ -1331,9 +1348,6 @@ class Optimizer:
 
             synergy_seeds = self._synergy_seeds()
 
-            # Build order: longest first, then shortest, then middle.
-            # Operators from the longest shift get paired with the shortest
-            # (16h work + 8h rest is sustainable; 21h work + 3h rest is not).
             build_order = [gap_order[0]]
             if len(gap_order) > 2:
                 build_order.append(gap_order[-1])
@@ -1345,6 +1359,7 @@ class Optimizer:
             shifts_built = [None] * n_gaps
             for priority, g_idx in enumerate(build_order):
                 maxed = {nm for nm, cnt in usage.items() if cnt >= max_work}
+                maxed -= perpetual
                 seed = synergy_seeds[priority] if priority < len(synergy_seeds) else {}
                 if user_seed:
                     seed = dict(user_seed)
@@ -1355,11 +1370,14 @@ class Optimizer:
                 else:
                     gap_asg = self._assign(m, t, p, exclude=maxed)
                 self._optimize_lines(gap_asg)
-                seed_locked = set(seed) if seed else None
+                locked = (set(seed) if seed else set()) | perpetual
                 gap_asg = self._optimize_assignment(
-                    gap_asg, local_search, locked=seed_locked,
+                    gap_asg, local_search, locked=locked or None,
                     label=f"shift-g{g_idx}")
                 self._optimize_lines(gap_asg)
+
+                if perpetual:
+                    self._setup_fiammetta(gap_asg, perpetual)
 
                 shifts_built[g_idx] = gap_asg
                 working = set(gap_asg.control) | set(gap_asg.meeting) | set(gap_asg.hire)
@@ -1383,4 +1401,4 @@ class Optimizer:
                 best_overall = (weighted, shifts, results, (m, t, p))
 
         _, shifts, results, layout = best_overall
-        return shifts, results, layout
+        return shifts, results, layout, perpetual

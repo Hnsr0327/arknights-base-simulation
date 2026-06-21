@@ -251,7 +251,8 @@ def _refresh_current_stats(eng: Engine, asg: Assignment, mood: dict[str, float])
 def simulate(eng: Engine, asg: Assignment, sched: Schedule, *,
              shifts: list[Assignment] | None = None,
              days: int = 7, initial_mood: float | None = None,
-             rest_floor: float = 1.0) -> SimResult:
+             rest_floor: float = 1.0,
+             perpetual: set[str] | None = None) -> SimResult:
     """从 initial_mood 起, 逐 gap 推进 days 天, 返回每日产出曲线与累计。
 
     shifts: 多班次轮换排班, shifts[i] 用于 gaps[i % len(shifts)]。
@@ -278,6 +279,10 @@ def simulate(eng: Engine, asg: Assignment, sched: Schedule, *,
         for fiammetta, target in _fiammetta_swap_pairs(s_asg):
             all_tracked.add(fiammetta)
             all_tracked.add(target)
+    perpetual = perpetual or set()
+    all_tracked |= perpetual
+    if perpetual and "菲亚梅塔" in eng.prof:
+        all_tracked.add("菲亚梅塔")
 
     # 稳态参考: 多班次按每日 gap 时长加权, 单班次退化为原有评估。
     steady_by_shift = [eng.evaluate(s_asg).ap_per_day for s_asg in shifts]
@@ -466,9 +471,18 @@ def simulate(eng: Engine, asg: Assignment, sched: Schedule, *,
                     base_rec = dorm_base_recover_for_room(eng.cfg, 0)
                 return base_rec + dorm_bonus + ((ctrl_recover + elite_bonus) if ctrl_working else 0.0)
 
-            for fiammetta, target in _fiammetta_swap_pairs(asg_resting, mood):
-                if target in mood and mood.get(fiammetta, cap) >= cap - 1e-6 and mood[target] < cap - 1e-6:
-                    mood[fiammetta], mood[target] = mood[target], cap
+            if perpetual and "菲亚梅塔" in mood:
+                fia_m = mood.get("菲亚梅塔", 0)
+                if fia_m >= cap - 1e-6:
+                    targets = [(mood.get(nm, cap), nm) for nm in perpetual
+                               if nm in mood and mood.get(nm, cap) < cap - 1e-6]
+                    if targets:
+                        _, best = min(targets)
+                        mood["菲亚梅塔"], mood[best] = mood[best], cap
+            else:
+                for fiammetta, target in _fiammetta_swap_pairs(asg_resting, mood):
+                    if target in mood and mood.get(fiammetta, cap) >= cap - 1e-6 and mood[target] < cap - 1e-6:
+                        mood[fiammetta], mood[target] = mood[target], cap
             mood_start = dict(mood)
 
             # (c) 逐干员推进心情

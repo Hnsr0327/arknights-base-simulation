@@ -336,7 +336,7 @@ def main(argv=None) -> int:
             print(f"\r  评估布局 {i}/{n}  制{layout[0]}/贸{layout[1]}/电{layout[2]}  "
                   f"当前最佳 {ap:.0f}    ", end="", file=sys.stderr)
 
-        shifts, shift_results, layout = opt.optimize_rotation(
+        shifts, shift_results, layout, perpetual = opt.optimize_rotation(
             args.n_shifts, local_search=not args.no_local_search, progress=progress_rot,
             layout=layout_fixed, user_seed=lock_seed or None)
         print("", file=sys.stderr)
@@ -345,7 +345,7 @@ def main(argv=None) -> int:
         days = args.days or 7
         from .simulate import simulate
         sim = simulate(opt.eng, shifts[0], schedule, shifts=shifts, days=days,
-                       initial_mood=args.initial_mood)
+                       initial_mood=args.initial_mood, perpetual=perpetual)
         print(render_sim(sim, days))
         return 0
 
