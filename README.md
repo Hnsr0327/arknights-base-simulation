@@ -12,14 +12,20 @@ config.json    ─┘
 ## 快速开始
 
 ```bash
-source ../../../.venv/bin/activate          # 项目根的虚拟环境
-cd active/playground/arknights_base_simulation
-
-# 默认: 用 ~/Downloads/干员练度表.xlsx, 每日上线 08:00 / 22:00
+# 默认: 用 data/干员练度表.xlsx, 每日上线 08:00 / 22:00
 python -m arknights_base_simulation
 
 # 指定练度表 + 每日 4 次上线
 python -m arknights_base_simulation /path/干员练度表.xlsx --logins 7,12,17,22
+
+# 指定布局(跳过布局枚举)
+python -m arknights_base_simulation --logins 0,13,16.5 --layout 4,2,3
+
+# 锁定干员到指定设施, 优化器填充剩余位
+python -m arknights_base_simulation --logins 8,22 --lock control:令,夕,诗怀雅 --lock trading:但书
+
+# 自动生成 2~4 组轮换排班 + 14天瞬态模拟
+python -m arknights_base_simulation --logins 0,13,16.5 --n-shifts 3 --days 14
 
 # 用官方『物品价值表.xlsx』实时载入素材理智价值(按物品id)
 python -m arknights_base_simulation --logins 8,22 --values-xlsx /path/物品价值表.xlsx
@@ -30,6 +36,9 @@ python -m arknights_base_simulation --config my_config.json --logins 8,22
 # 机器可读输出
 python -m arknights_base_simulation --logins 8,22 --json
 
+# 导出 MAA 自定义基建排班表 JSON
+python -m arknights_base_simulation --logins 8,22 --export-maa maa_plan.json
+
 # 逐日瞬态模拟: 按真实时间轴推进心情, 输出每日产出曲线(默认错峰=已运行基建)
 python -m arknights_base_simulation --logins 8,22 --days 10
 # 看新部署的心情爬坡(全员从指定初始心情同步出发)
@@ -37,10 +46,25 @@ python -m arknights_base_simulation --logins 8,22 --days 10 --initial-mood 12
 
 # 手写多班次排班: 跳过优化器, 按给定 1~4 组排班轮换并做瞬态模拟
 python -m arknights_base_simulation --logins 0,6,12,18 --shifts shifts_example.json --days 7
-
-# 自动生成 2~4 组轮换排班: 中枢/制造/贸易按班次分配, 发电/会客/办公沿用同一批
-python -m arknights_base_simulation --logins 0,6,12,18 --n-shifts 3 --days 7
 ```
+
+### 命令行参数
+
+| 参数 | 说明 |
+|------|------|
+| `xlsx` (位置参数) | 干员练度表路径, 默认 `data/干员练度表.xlsx` |
+| `--logins H1,H2,...` | 每日上线时刻(24h制, 1~4个) |
+| `--config PATH` | config.json 路径 |
+| `--values-xlsx PATH` | 物品价值表.xlsx, 覆盖 config 中的 material_values_ap |
+| `--layout M,T,P` | 指定布局(制造,贸易,发电), 如 `4,2,3`; 不指定则枚举取最优 |
+| `--lock ROOM:OP,...` | 锁定干员到设施, 可多次使用 |
+| `--n-shifts N` | 自动生成 N 组轮换排班(2~4) |
+| `--shifts PATH` | 手写多班次排班 JSON, 跳过优化器 |
+| `--days N` | 逐日瞬态模拟天数 |
+| `--initial-mood M` | 瞬态模拟初始心情(默认错峰) |
+| `--export-maa PATH` | 导出 MAA 排班表 JSON |
+| `--no-local-search` | 关闭局部搜索(更快, 质量略低) |
+| `--json` | 输出 JSON |
 
 ## 三个输入
 
@@ -101,7 +125,7 @@ python -m arknights_base_simulation --logins 0,6,12,18 --n-shifts 3 --days 7
 > **赤金↔龙门币链**: 这是 `制造站(产赤金) → 贸易站(卖赤金换龙门币)` 的耦合。
 > 若你把 `material_values_ap.龙门币` 调高(认为龙门币更稀缺), 优化器会自动从经验流
 > 转向龙门币流, 并多建贸易站; 此时上线频率影响更明显(订单上限易溢出)。
-> **源石碎片↔合成玉链**: PRTS Lv3 贸易站“开采协力”可通过 `trading.strategy=orundum`
+> **源石碎片↔合成玉链**: PRTS Lv3 贸易站"开采协力"可通过 `trading.strategy=orundum`
 > 启用, 按 `制造站(产源石碎片) → 贸易站(2源石碎片换20合成玉)` 结算。源石碎片制造线默认仍关闭,
 > 需要在 `manufacture.lines` 中显式配置, 避免默认优化误选通常净值为负的碎片链。
 
@@ -113,25 +137,35 @@ python -m arknights_base_simulation --logins 0,6,12,18 --n-shifts 3 --days 7
 - **库存不跨日**: 每次上线收菜清空, 故产量按 gap 结算; 唯一跨日累积的状态是心情。
 - **初始心情**: 默认**错峰**(代表已运行基建, 各干员心情铺开 -> 平滑); `--initial-mood M` 则全员
   从 M 同步出发(展示新部署的爬坡与同步周期波动)。
-- 输出每日产出曲线 + `可持续日产(后半程均值)`, 通常为稳态乐观值的 ~75–85%——差额正是稳态忽略的轮换损耗。
+- 输出每日产出曲线 + `可持续日产(后半程均值)`。
 - 局限: 固定排班无替补, 工位休息空缺是该方案的保守下界; 真实玩家有富余干员轮换可填平。
 
 ### 手写多班次排班 (`--shifts shifts.json`)
 `--shifts` 接受 1~4 组排班 JSON, 直接按每日上线间隔轮换, 不再调用优化器。每组可填写
 `control`、`manufacture`、`trading`、`power`、`meeting`、`hire`、`dormitory`、`training`;
-仓库内的 `shifts_example.json` 和 `shifts_gongsun.json` 可作格式参考。
+`data/non-standard-configs/` 下有多种参考配置(逻辑元 243 三换、252 等)。
 
 多班次模式下, 当班干员上岗; 非当班干员自动进入宿舍恢复, 下次上岗沿用恢复后的心情。
 这用于检查手写 243/252 轮换方案在真实心情时间轴下是否可持续。
 
-`--n-shifts N` 会由优化器自动生成 2~4 组轮换排班。当前策略只轮换中枢/制造/贸易;
-发电站、会客室、办公室沿用单班优化结果中的同一批干员。贸易特殊机制/暖机干员仅提高候选排序,
-不会被强制复制到每个班次。
-
 ### 优化器
-枚举 `制造:贸易:发电` 对 9 个生产位的所有瓜分 → 每种布局贪心排班(控制中枢全局加成
-优先 → 制造/贸易边际收益 → 发电/会客室/办公室 → 逐房间选最优生产线 → 宿舍补心情)
-→ 轻量局部搜索替换生产位 → 取日均理智最高的布局。整体 <1s。
+
+**单班次** (`--n-shifts 1` 或默认):
+枚举 `制造:贸易:发电` 对 9 个生产位的所有瓜分 → 每种布局:
+1. 贪心排班(控制中枢全局加成优先 → 制造/贸易边际收益 → 发电/会客室/办公室 → 宿舍)
+2. 协同种子搜索: 尝试感知链(令+夕+迷迭香+至简+车尔尼+爱丽丝+塑心+黑键)、至简独立、控制派系等预设组合
+3. 局部搜索: 同房间替换 + 跨设施交换(制造↔贸易 swap、控制重排、闲置→宿舍)
+4. 生产线优化(赤金/作战记录/源石碎片 逐房间选最优)
+→ 取日均理智最高的布局。单班次 ~1-3s。
+
+**多班次** (`--n-shifts 2~4`):
+1. 识别 007 永驻干员: SPECIAL_TRADE_EFF 中的但書/龙舌兰, 在菲亚梅塔可用时全班次工作不休息
+2. 逐班次独立构建: 按 gap 时长排序(最长→最短→中间), 每班次独立贪心+种子+局部搜索+跨设施搜索
+3. 用量追踪: 每个干员最多工作 max_work 个 gap(工休比由宿舍恢复率决定), 007 干员除外
+4. 菲亚梅塔 mood swap: 菲亚梅塔固定宿舍, 每次换班时与心情最低的 007 干员交换心情
+5. `--lock` 支持: 锁定干员到指定设施, 优化器在锁定约束下填充剩余位
+
+多班次优化 ~30-70s(含跨设施搜索)。
 
 ## 数据来源 / 校准
 - **素材理智价值**: 一图流『物品价值表.xlsx』(经验/龙门币/赤金/源石碎片/无人机/合成玉等)。
@@ -153,6 +187,9 @@ python -m arknights_base_simulation --logins 0,6,12,18 --n-shifts 3 --days 7
   含转化链(宿舍人数→感知信息→思维链环/无声共鸣; 人间烟火→巫术结晶)。
 - 优化器: 默认开满 **4 间宿舍**(供抱团资源/宿舍联动); 团队感知的 `_synergy_pass` 会把配对伙伴
   (如 拉普兰德↔德克萨斯)安置到同一房间以激活联动。
+- **协同种子**: 优化器自动发现资源池链(感知链: 令+夕 控制 → 车尔尼+爱丽丝 宿舍产感知信息
+  → 迷迭香 制造消费感知信息产思维链环 +60% 生产力; 黑键 贸易产感知信息+无声共鸣),
+  整组作为种子预置后再贪心填充剩余位, 避免贪心排序错过跨设施协同。
 
 ### 特殊贸易干员(改写赤金订单, config.json `trading.special_ops`)
 PRTS 官方技能文本实装, 按 3 级站赤金订单概率取长期期望:
@@ -167,7 +204,8 @@ PRTS 官方技能文本实装, 按 3 级站赤金订单概率取长期期望:
 - **高品质贵金属订单**: 单个 α/β、两个 α 提质技能按 PRTS 3级站概率表折成期望订单
   (α: 2/3/4赤金单=15%/30%/55%, 3h达峰; β: 5%/10%/85%, 5h达峰),
   按上线窗口日均化 warm-up, 并联动龙舌兰的原生4赤金单概率、但书的原生<4赤金单概率。
-- 优化器据此把这三人纳入贸易候选, 实战会摆出社区双体系("一站但书违约单 + 一站巫恋+龙舌兰")。
+- **007 永驻**: 但書+龙舌兰在菲亚梅塔可用时全班次工作不下班, 靠菲亚梅塔在宿舍恢复心情后
+  每次换班 swap 维持(恢复速率 2/h > 两人消耗 2×0.75/h)。优化器自动识别并锁定。
 
 ## 已知简化
 - 心情阈值型(夕/令等)在逐日瞬态或显式 `mood_override` 下按当前心情分支; 稳态无心情态时默认高心情分支。
@@ -176,12 +214,12 @@ PRTS 官方技能文本实装, 按 3 级站赤金订单概率取长期期望:
 - 会客室(线索→信用)、办公室(公招刷新)、加工站/训练室产出非理智素材, 按*保守*估值。
   加工站默认 `crafts_per_day=0`, 不计产值; 若配置 `crafts_per_day`、`craft_category`、
   `base_byproduct_chance`、`ap_per_byproduct`, 则只把匹配加工类别的副产品技能计入期望理智。
-  若再配置 `craft_lmd_cost`, 瑕光等“减免龙门币消耗”技能会按实际加工次数折算节省龙门币。
-  莱伊/洛洛/蚀清等“副产品必定为X组”会在 `fixed_byproduct` 明细中标出, 不改变通用副产品数量估值。
+  若再配置 `craft_lmd_cost`, 瑕光等"减免龙门币消耗"技能会按实际加工次数折算节省龙门币。
+  莱伊/洛洛/蚀清等"副产品必定为X组"会在 `fixed_byproduct` 明细中标出, 不改变通用副产品数量估值。
   `craft_category` 可取 `any/elite/skill/chip/building/alloy/polyester/oriron/rock/crystal/ketone/device`。
   它们是固定房间, 不影响经济区配比。
   训练室默认 `ap_value_per_hour=0`; 若估值训练, `target_mastery_level` 与 `target_branch` 会扣除不匹配的
-  “专精至N级/训练位分支”条件额外速度和心情消耗, 且训练室等级按 PRTS 限制可执行的最高专精等级。
+  "专精至N级/训练位分支"条件额外速度和心情消耗, 且训练室等级按 PRTS 限制可执行的最高专精等级。
 - 无人机按 PRTS「每架减少 3 分钟基础耗时」在制造站/贸易站间选择最高边际收益目标
   (见 `power.drone_minutes_per_drone`; 控制中枢Lv3解锁无人机协助), 不再被生产力%/订单效率%二次放大, 非按素材价值估值。
 - 普通、单个α/β、两个α提质赤金订单按 PRTS 概率与达峰时间取长期期望, 未逐笔随机模拟。
@@ -191,16 +229,21 @@ PRTS 官方技能文本实装, 按 3 级站赤金订单概率取长期期望:
 ## 模块
 ```
 arknights_base_simulation/
+  __init__.py   包入口
+  __main__.py   python -m 入口
+  cli.py        命令行解析 / 输出渲染 / MAA导出
   roster.py     练度表解析
   skills.py     技能库 + 解锁/互斥组解析
   effects.py    描述 -> 结构化效果(语义) + oa 数值(量级)
   synergy.py    动态联动: 上下文(派系计数/抱团资源池) + 条件/计数/资源解析
   engine.py     模拟引擎(两遍计算 / 心情/产能/赤金链/全局加成/溢出/电力)
-  simulate.py   逐日瞬态模拟(按时间轴推进心情 / 占空循环 / 每日产出曲线)
-  optimizer.py  布局枚举 + 贪心排班 + 局部搜索 + 团队协同安置
+  simulate.py   逐日瞬态模拟(按时间轴推进心情 / 占空循环 / 菲亚梅塔swap / 每日产出曲线)
+  optimizer.py  布局枚举 + 贪心排班 + 协同种子 + 局部搜索 + 跨设施搜索 + 007永驻 + 多班次轮换
   valuetable.py 物品价值表.xlsx -> 素材理智价值
-  cli.py        命令行 / 输出
-data/           skills.json / values.json / groups.json (一图流) + factions.json (官方派系)
+data/
+  skills.json / values.json / groups.json   一图流技能/数值/互斥组
+  factions.json                             官方 character_table 派系
+  non-standard-configs/                     参考配置(逻辑元243三换, 252等)
 config.json     素材理智价值 + 产能/心情/电力常量 (可改)
 tests/          冒烟测试(数据/解锁/电力/条件门控/资源链/估值响应)
 ```
