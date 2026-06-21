@@ -8,26 +8,39 @@
 config.json    ─┘
 ```
 
-### 数据导出
+### 如何开始使用
 
-- 干员练度表: [一图流 · 干员练度](https://ark.yituliu.cn/survey/operators) 导出 xlsx
-- 物品价值表: [一图流 · 物品价值](https://ark.yituliu.cn/material/value) 导出 xlsx, 通过 `--values-xlsx` 载入
+> 我想基于我的干员列表、物品价值评估和每日上线时间来获得最佳排班表，我该准备什么？
 
-## 快速开始
+#### 导出你的数据
+
+1. **干员练度表**: 前往 [一图流 · 干员练度](https://ark.yituliu.cn/survey/operators), 登录后点击「导出」下载 `干员练度表.xlsx`, 放到 `data/` 目录下
+2. **物品价值表** (可选): 前往 [一图流 · 物品价值](https://ark.yituliu.cn/material/value), 导出 `物品价值表.xlsx`, 通过 `--values-xlsx` 参数载入以覆盖默认估值
+3. **上线时刻**: 确定你每天上线换班的时间(24h制), 用 `--logins` 传入
 
 ```bash
-# 默认: 用 data/干员练度表.xlsx, 每日上线 08:00 / 22:00
-python -m arknights_base_simulation
-
-# 243 布局, 一天三换, 14天瞬态模拟
+# 示例: 243 布局, 每天 0:00/13:00/16:30 上线换班, 14天模拟
 python -m arknights_base_simulation --logins 0,13,16.5 --layout 4,2,3 --n-shifts 3 --days 14
 
-# 锁定干员到指定设施
-python -m arknights_base_simulation --logins 8,22 --lock control:令,夕 --lock trading:但书
+# 用自定义物品价值
+python -m arknights_base_simulation --logins 8,22 --values-xlsx 物品价值表.xlsx
 
-# 导出 MAA 排班表
-python -m arknights_base_simulation --logins 8,22 --export-maa maa_plan.json
+# 锁定特定干员到指定设施
+python -m arknights_base_simulation --logins 8,22 --lock control:令,夕 --lock trading:但书
 ```
+
+#### 导入排班方案到 MAA
+
+> 我希望让牛牛代班我的排班！怎么导出给牛牛？
+
+1. 运行优化器并导出 MAA 排班表:
+   ```bash
+   python -m arknights_base_simulation --logins 8,22 --export-maa maa_plan.json
+   ```
+2. 将生成的 `maa_plan.json` 复制到 MAA 安装目录下的 `resource/custom_infrast/`
+3. 在 MAA 中打开 **基建换班** 任务, 选择 **自定义基建换班** 模式, 即可使用导出的排班方案
+
+> 注: `--export-maa` 目前仅支持单班次模式。多班次(`--n-shifts`)的排班需手动导入或参考输出自行编排。
 
 <details>
 <summary>全部命令行参数</summary>
